@@ -3,18 +3,10 @@
 	Currently Enabled.
 	Click to see more info.</text>
 	<text name="info_addon_fmcore">FUSION
-	Developed by: Kommandant_Julk and Vertaalfout
+	Developed by: Kommandant_Julk
 	Currently Enabled.
 
-	Features:
-	- allows performing multiple actions during sector jump (one augment AND Cura)
-	- Cura quests aren't lost on reroutes
-	- Beam Pierce augment (beams gain +1 sp) 
-	- Fixes lvl 4 MC
-	- Info buttons for some addons
-	- some framework stuff for Forgemaster
-	- some system cooldown related augment implementations
-	(if an addon says disabled despite being patched in it was patched above Fusion or isn't updated to support the buttons)
+	This addon contains togglable QoL features, custom XML tags and Lua utility functions. It's designed to fill the dependency role previously occupied by Inferno-Core.
 	</text>
 
 	<text name="addon_hover_forgemaster">FORGEMASTER
