@@ -1,0 +1,237 @@
+<FTL><!-- Inferno-Core-->
+	<event name="FMCORE_ATLAS_EQUIPMENT">
+		<text>Choose what you wish to do aboard the ship while in hyperspeed, you have several options.</text>
+		<choice hidden="true" req="FMCORE_CAN_USE_HS_AUG" blue="false">
+			<text>Use a jumpspeed augment.</text>
+			<event>
+				<loadEvent>ATLAS_EQUIPMENT</loadEvent>
+				<variable name="fmcore_used_hs_aug" op="set" val="1"/>
+			</event>
+		</choice>
+		<choice hidden="true" req="fmcore_used_hs_aug" blue="false">
+			<text>You already used a jumpspeed augment.</text>
+			<event load="OPTION_INVALID"/>
+		</choice>
+		<choice hidden="true" req="FMCORE_CAN_CALL_CURA" blue="false">
+			<text>View available tasks from C.U.R.A.</text>
+			<event>
+				<loadEventList seeded="false" generate="false">
+					<event name="CURA_TASK_MENU" req="pilot"/>
+				</loadEventList>
+				<!--<loadEvent>CURA_TASK_MENU</loadEvent>-->
+				<variable name="fmcore_called_cura" op="set" val="1"/>
+			</event>
+		</choice>
+		<choice hidden="true" req="fmcore_called_cura" blue="false">
+			<text>You already accepted a C.U.R.A. task.</text>
+			<event load="OPTION_INVALID"/>
+		</choice>
+		<choice req="pilot" max_group="1" hidden="true" blue="false">
+			<text>Nevermind.</text>
+			<event load="LOAD_ATLAS"/>
+		</choice>
+	</event>
+
+	<mod:findName type="event" name="ATLAS_MENU_NOEQUIPMENT">
+		<mod:findWithChildLike type="choice" child-type="event">
+			<mod:selector load="LASTSTAND_WARP"/>
+			<mod:setAttributes req="FMCORE_LIST_JUMPSPACE_EQUIPMENT" blue="true"/>
+			<mod:findLike type="event">
+				<mod:setAttributes load="FMCORE_ATLAS_EQUIPMENT"/>
+			</mod:findLike>
+			<mod-overwrite:text>Do something aboard the ship.</mod-overwrite:text>
+		</mod:findWithChildLike>
+		<mod-append:choice req="SEC FINAL" blue="false">
+			<text>Proceed to the Federation Capital.</text>
+			<event load="LASTSTAND_WARP"/>
+		</mod-append:choice>
+	</mod:findName>
+	<mod:findName type="event" name="ATLAS_MENU">
+		<mod:findWithChildLike type="choice" child-type="event">
+			<mod:selector load="ATLAS_EQUIPMENT"/>
+			<mod:setAttributes req="FMCORE_LIST_JUMPSPACE_EQUIPMENT"/>
+			<mod:findLike type="event">
+				<mod:setAttributes load="FMCORE_ATLAS_EQUIPMENT"/>
+			</mod:findLike>
+		</mod:findWithChildLike>
+		<mod:findWithChildLike type="choice" child-type="event">
+			<mod:selector load="CURA_TASK_MENU"/>
+			<mod:removeTag/>
+		</mod:findWithChildLike>
+	</mod:findName>
+
+	<mod:findName type="event" name="ATLAS_EQUIPMENT">
+		<mod:findWithChildLike type="choice" child-type="event">
+			<mod:selector load="LOAD_ATLAS"/>
+			<mod-overwrite:event>
+				<loadEvent>LOAD_ATLAS</loadEvent>
+				<variable name="fmcore_used_hs_aug" op="set" val="0"/>
+			</mod-overwrite:event>
+		</mod:findWithChildLike>
+	</mod:findName>
+	<mod:findName type="event" name="LOAD_ATLAS_MARKER"><!--appending the part of the code that resets the makres for which menus were used-->
+		<mod-append:triggeredEvent event="FMCORE_SPAWNER" thisFight="false" clearOnJump="false"><!--if it works correctly then when entering a sector FMCORE_SPAWNER will run, this is where stuff like Forgemaster spawning event are appended to-->
+			<time amount="0.0"/>
+		</mod-append:triggeredEvent>
+		<mod-append:variable name="fmcore_used_hs_aug" op="set" val="0"/>
+		<mod-append:variable name="fmcore_called_cura" op="set" val="0"/>
+	</mod:findName>
+	
+	<event name="CURA_QUEST_SPAWNER">
+		<loadEventList>
+			<event req="FMCORE_CURA_QUEST_SPAWN">				
+				<loadEventList first="true" default="TRUENOTHING">	
+					<event req="cura_schoolid_called" lvl="1">
+						<quest event="CURA_SCHOOLID"/>
+						<loadEvent>CURA_SCHOOLID_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_drawing_called" lvl="1">
+						<quest event="CURA_DRAWING"/>
+						<loadEvent>CURA_DRAWING_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_crush_called" lvl="1">
+						<quest event="CURA_CRUSH"/>
+						<loadEvent>CURA_CRUSH_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_toilet_called" lvl="1">
+						<quest event="CURA_TOILET"/>
+						<loadEvent>CURA_TOILET_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_plushie_called" lvl="1">
+						<quest event="CURA_PLUSHIE"/>
+						<loadEvent>CURA_PLUSHIE_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_pete_called" lvl="1">
+						<quest event="CURA_PETE"/>
+						<loadEvent>CURA_PETE_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_usb_called" lvl="1">
+						<quest event="CURA_USB"/>
+						<loadEvent>CURA_USB_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_survivor_called" lvl="1">
+						<quest event="CURA_SURVIVOR"/>
+						<loadEvent>CURA_SURVIVOR_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_wedding_called" lvl="1">
+						<quest event="CURA_WEDDING"/>
+						<loadEvent>CURA_WEDDING_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_will_called" lvl="1">
+						<quest event="CURA_WILL"/>
+						<loadEvent>CURA_WILL_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_scandal_called" lvl="1">
+						<quest event="CURA_SCANDAL"/>
+						<loadEvent>CURA_SCANDAL_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_torture_called" lvl="1">
+						<quest event="CURA_TORTURE"/>
+						<loadEvent>CURA_TOTURE_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_outpost_called" lvl="1">
+						<quest event="CURA_OUTPOST"/>
+						<loadEvent>CURA_OUTPOST_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_ship_called" lvl="1">
+						<quest event="CURA_SHIP"/>
+						<loadEvent>CURA_SHIP_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_dusk_called" lvl="1">
+						<quest event="CURA_DUSK"/>
+						<loadEvent>CURA_DUSK_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>
+					<event req="cura_contract_called" lvl="1">
+						<quest event="CURA_CONTRACT"/>
+						<loadEvent>CURA_CONTRACT_SPAWN_END</loadEvent>
+						<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+					</event>					
+				</loadEventList>
+			</event>
+		</loadEventList>
+	</event>
+	<event name="CURA_SCHOOLID_SPAWN_END">
+		<variable name="cura_schoolid_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_DRAWING_SPAWN_END">
+		<variable name="cura_drawing_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_CRUSH_SPAWN_END">
+		<variable name="cura_crush_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_TOILET_SPAWN_END">
+		<variable name="cura_toilet_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_PLUSHIE_SPAWN_END">
+		<variable name="cura_plushie_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_PETE_SPAWN_END">
+		<variable name="cura_pete_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_USB_SPAWN_END">
+		<variable name="cura_usb_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_SURVIVOR_SPAWN_END">
+		<variable name="cura_survivor_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_WEDDING_SPAWN_END">
+		<variable name="cura_wedding_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_WILL_SPAWN_END">
+		<variable name="cura_will_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_SCANDAL_SPAWN_END">
+		<variable name="cura_scandal_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_TOTURE_SPAWN_END">
+		<variable name="cura_torture_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_OUTPOST_SPAWN_END">
+		<variable name="cura_outpost_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_SHIP_SPAWN_END">
+		<variable name="cura_ship_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_DUSK_SPAWN_END">
+		<variable name="cura_dusk_called" op="set" val="0"/>
+	</event>
+	<event name="CURA_CONTRACT_SPAWN_END">
+		<variable name="cura_contract_called" op="set" val="0"/>
+	</event>
+	<event name="FMCORE_SPAWNER">
+		<queueEvent>CURA_QUEST_SPAWNER</queueEvent>
+	</event>
+	<event name="ALL_CURA_TEST">
+		<variable name="cura_schoolid_called" op="set" val="1"/>
+		<variable name="cura_drawing_called" op="set" val="1"/>
+		<variable name="cura_crush_called" op="set" val="1"/>
+		<variable name="cura_toilet_called" op="set" val="1"/>
+		<variable name="cura_plushie_called" op="set" val="1"/>
+		<variable name="cura_pete_called" op="set" val="1"/>
+		<variable name="cura_usb_called" op="set" val="1"/>
+		<variable name="cura_survivor_called" op="set" val="1"/>
+		<variable name="cura_wedding_called" op="set" val="1"/>
+		<variable name="cura_will_called" op="set" val="1"/>
+		<variable name="cura_scandal_called" op="set" val="1"/>
+		<variable name="cura_torture_called" op="set" val="1"/>
+		<variable name="cura_outpost_called" op="set" val="1"/>
+		<variable name="cura_ship_called" op="set" val="1"/>
+		<variable name="cura_dusk_called" op="set" val="1"/>
+		<variable name="cura_contract_called" op="set" val="1"/>
+	</event>
+</FTL>

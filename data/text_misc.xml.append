@@ -1,0 +1,143 @@
+<FTL><!-- Inferno-Core-->
+	<text name="addon_hover_fmcore">INFERNO-CORE
+	Currently Enabled.
+	Click to see more info.</text>
+	<text name="info_addon_fmcore">INFERNO-CORE
+	Developed by: Kommandant_Julk and Vertaalfout
+	Currently Enabled.
+
+	Features:
+	- allows performing multiple actions during sector jump (one augment AND Cura)
+	- Cura quests aren't lost on reroutes
+	- Beam Pierce augment (beams gain +1 sp) 
+	- Fixes lvl 4 MC
+	- Info buttons for some addons
+	- some framework stuff for Forgemaster
+	- some system cooldown related augment implementations
+	(if an addon says disabled despite being patched in it was patched above Inferno-Core or isn't updated to support the buttons)
+	</text>
+
+	<text name="addon_hover_forgemaster">FORGEMASTER
+	Currently Disabled.
+	Click to see more info.</text>
+	<text name="info_addon_forgmaster">FORGEMASTER
+	Developed by: Cyrus106, Abstrusity, Maxine, Radish, SeaDragonet, Kommandant_Julk, Vertaalfout, DemonFusionGamer and Skye
+	Currently Disabled.
+
+	A major expansion for Multiverse! It includes new NPCs, quests, weapons, sectors, bosses, and more. Drones and augments are coming soon! The primary new feature is: the weapon crafting system, which allows you to combine
+	numerous weapon combinations into stronger variants (or at the very least, side-grades).These weapons are intended to shine brightest when used on ships with less weapon slots and make use of the newest most complex features hyperspace has to offer for a completely unique feel! New tooltips will appear on weapon components that can be used for crafting!
+	(the addon Inferno-Core was designed for)
+
+	To enable Forgemaster, go to the mulvierse forums!
+	</text>
+
+	<text name="addon_hover_gb">GO-BALLISTIC-2
+	Currently Outdated.
+	Click to see more info.</text>
+	<text name="info_addon_gb">GO-BALLISTIC-2
+	Developed by: R4V3-0N, porcu93, cgjunior, laszlogasd, Madoktor, RobintheDragon2, Kommandant_Julk and formerly by ChronoVortex
+	Currently Disabled.
+
+	This mod adds 16 new ballistic weapons and 1 new toggle drone themed around out dated ballistic weaponry of the Federation during its foundation during the Federation-Mantis War.
+	This version is built for use with Multiverse 5.3.1. The mod is a redevelopment and update of the original GO BALLISTIC!, a mod made by R4V3-0N with significant help from ChronoVortex. It features new art, sound effects, and a complete rebalance of the weapons and drones of the original.
+	Reimagining the niche of these weapons using new Hyperspace functionality that did not exist at the time of the original mod and with a small team of friends.
+
+	To enable Go Ballistic 2, go to the multiverse forums!
+	</text>
+	<text name="addon_hover_tcc">TRASH COMPACTOR COLLABORATION
+	Outdated.
+	Click to see more info.</text>
+	<text name="info_addon_tcc">TRASH COMPACTOR COLLABORATION
+	Developed by Zuggo, Dalvest, Enchanter, Cryntolov, Ashley, NitronEXE, LandGreen, Choosechee, ConMan, Kommandant_Julk
+	Currently Disabled.
+
+	Major expansion for Multiverse, including fun things such as a brand new race of upgradable Lanius, a whole new page of ships and a handful of weapons.
+
+	Now includes quite a few other mods such as Bomb Flaks and Instant Flair.
+
+	Not compatible beyond mv 5.3.1, sorry.
+	</text>
+	<text name="addon_hover_fr">FORGOTTEN RACES
+	Currently Disabled.
+	Click to see more info.</text>
+	<text name="info_addon_fr">FORGOTTEN RACES
+	Developed by Gabriel Cooper and HereticChurch
+	Currently Disabled.
+
+	This addon adds actual content to the extinct third Obelisk race: the Commonwealth. Currently in base MV, they are long extinct, with the only thing surviving from their arsenal being the Ancient C cruiser and the broken down body of a commonwealth obelisk in Sylvan A.
+
+The content included for this race consists of: A commonwealth version of almost all obelisk content, including drones, weapons and even a Cognitive. The addon also includes a revamped commonwealth ship which you can unlock, and said ship has a exclusive augment that lets you craft the CW content.
+
+This addon, however, includes a lot more than just blue cubes, it adds a blue lanius crew type and ship which mirrors the augmented and the Augmented Queen, just blue to reflect their consumption of commonwealth material.
+
+Other content also includes: a brand new race of the Metal diamonds with lanius and cognitive equivalents for their stuff, as well as weapons and ships for them (there's 3 metal diamond types in total, each focusing on their own strengths and weaknesses). The addon also adds the Tester, a ship that exists in the files but was never added officially for people to play with with layout B and C to boot, as well as the Legion Flagship line.
+
+Be weary, the balance in the addon is rather volatile and might not be for everyone's taste, while the dev does try to have the content be somewhat balanced around itself, it's not the same approach as base MV has.
+
+	tl;dr: more cubes and cube flavored lanius, balance not perfect, typo checking not guaranteed
+
+	To enable Forgotten Races, go to the multiverse forums!
+	</text>
+	<text name="addon_hover_bag">BAG OF DUMB
+	Currently Outdated.
+	Click to see more info.</text>
+	<text name="info_addon_bag">BAG OF DUMB
+	Developed by Felipemello29, cgjunior, geckoindisguise, Enchanter, moreorlesser, AgentTHeKat, Laythe, MaddieDoktor, DemonFusionGamer, R4V3-0N, Vertaalfout and Kommandant_Julk
+	Currently Disabled.
+
+	"This exists without your consent"
+	Additional not-quite-dev mentions: Kix, Cyrus106, the Forgemaster Dev Team, Admiral Billy 
+Playtesters: Skye, Digger4Money
+
+	To enable Bag of Dumb, go to the multiverse forums!
+	</text>
+	<text name="addon_hover_aa">ALDER'S ADDITIONS
+	Currently Disabled.
+	Click to see more info.</text>
+	<text name="info_addon_aa">Alder's Additions: First Strike
+    Developed by: Alder, Vertaalfout, Chrono Vortex
+    Currently Disabled.
+    
+    An expansion pack that contains many unusual weapons, and which serves as a groundwork for future segments of Alder's Additions to come. As this mod is in open beta, it may contain extreme balance variations; play at your own risk!
+	
+	To enable Alder's Additions, ask Alder for it.
+	</text>
+	<text name="addon_hover_cnc">C&C WEAPONS
+	Currently Disabled.
+	Click to see more info.</text>
+	<text name="info_addon_cnc">C&C WEAPONS: RENEGADE EDITION
+	Developed by: Chrono Vortex
+	Additional credit: Vertaalfout, R4V3-0N
+	Currently Disabled.
+
+	Adds over a dozen new weapons and a couple other surprises based on the Command and Conquer franchise. 
+
+	To enable C&C Weapons, go to the subset forums and visit the MV addon page!
+	</text>
+	<text name="addon_hover_pip">PIRACY IS POGGERS
+	Currently Disabled.
+	Click to see more info.</text>
+	<text name="info_addon_pip">PIRACY IS POGGERS
+Developed by TerryIsOP
+Special thanks to Chrono Vortex and Julk for helping me throughout the coding process.
+Currently Disabled.
+
+This add-on expands on the existing pirate reputation system present in base Multiverse. Features include:
+- Many events from base MV now provide the opportunity to gain/lose reputation.
+- Increased chances to meet friendly pirates to check out their wares.
+- Massive buffs to the stuff you can get from friendly slavers, mercenaries and smugglers. While base MV allowed these pirates to sell some normally unobtainable stuff, in this add-on they have even more normally unobtainable stuff and it's easier to get the required reputation now.
+
+Some of the cool stuff you can get include but are not limited to:
+- Utility Bot Dispersal (that OP augment on Harmony Cruiser)
+- Angel Crew
+- Rift Waker 0.5 Power Efficient version
+- Secret Technology?
+	
+(if the addon is installed the more info button has more info!)
+To enable Piracy is Poggers, go to the subset forums and visit the MV addon page! (for now check the addon submission and announcement channel to get it)
+	</text>
+	<text name="mind_4">14s control, 4 targets</text>
+	<text name="addon_hover_rad2">R&amp;D
+		Currently Disabled.
+		Click to see more info.</text>
+</FTL>

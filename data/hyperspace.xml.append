@@ -1,0 +1,168 @@
+<FTL><!--Inferno-Core-->
+	<events>
+		<metaVariable name="fmcore_augbox_invert" op="set" val="0"/>
+		<variable name="fmcore_augbox_active" op="set" val="1"/>
+		<variable name="fmcore_buttons_visible" op="set" val="1"/>
+		<req name="FMCORE_AUGBOX_VISIBLE" lvl="1" max_lvl="1" type="sum">
+			<name>fmcore_augbox_active</name>
+			<name>fmcore_augbox_invert</name>
+		</req>
+
+		<variable name="fmcore_called_cura" op="set" val="0"/>
+		<variable name="fmcore_used_hs_aug" op="set" val="0"/>
+		<variable name="cura_schoolid_called" op="set" val="0"/>
+		<variable name="cura_drawing_called" op="set" val="0"/>
+		<variable name="cura_crush_called" op="set" val="0"/>
+		<variable name="cura_toilet_called" op="set" val="0"/>
+		<variable name="cura_plushie_called" op="set" val="0"/>
+		<variable name="cura_pete_called" op="set" val="0"/>
+		<variable name="cura_usb_called" op="set" val="0"/>
+		<variable name="cura_survivor_called" op="set" val="0"/>
+		<variable name="cura_wedding_called" op="set" val="0"/>
+		<variable name="cura_will_called" op="set" val="0"/>
+		<variable name="cura_scandal_called" op="set" val="0"/>
+		<variable name="cura_torture_called" op="set" val="0"/>
+		<variable name="cura_outpost_called" op="set" val="0"/>
+		<variable name="cura_ship_called" op="set" val="0"/>
+		<variable name="cura_dusk_called" op="set" val="0"/>
+		<variable name="cura_contract_called" op="set" val="0"/>
+		<req name="REQ_LIST_JUMPSPACE_EQUIPMENT" load="LIST_JUMPSPACE_EQUIPMENT"/><!--hope this works?-->
+		<req name="FMCORE_LIST_JUMPSPACE_EQUIPMENT">
+			<name>REQ_LIST_JUMPSPACE_EQUIPMENT</name>
+			<name>CURA_TASK_CHECK</name>
+			<name>CURA_TASK_AND_LIGHTSPEED</name>
+		</req>
+		<req name="FMCORE_CAN_USE_HS_AUG" type="all">
+			<name>REQ_LIST_JUMPSPACE_EQUIPMENT</name>
+			<req lvl="0" max_lvl="0">
+				<name>fmcore_used_hs_aug</name>
+			</req>
+		</req>
+		<req name="FMCORE_CAN_CALL_CURA" type="all">
+			<req>
+				<name>CURA_TASK_CHECK</name>
+				<name>CURA_TASK_AND_LIGHTSPEED</name>
+			</req>
+			<req lvl="0" max_lvl="0">
+				<name>fmcore_called_cura</name>
+			</req>
+		</req>
+		<req name="FMCORE_CURA_QUEST_SPAWN" type="all">
+			<req lvl="1">
+				<name>cura_schoolid_called</name>
+				<name>cura_drawing_called</name>
+				<name>cura_crush_called</name>
+				<name>cura_toilet_called</name>
+				<name>cura_plushie_called</name>
+				<name>cura_pete_called</name>
+				<name>cura_usb_called</name>
+				<name>cura_survivor_called</name>
+				<name>cura_wedding_called</name>
+				<name>cura_will_called</name>
+				<name>cura_scandal_called</name>
+				<name>cura_torture_called</name>
+				<name>cura_outpost_called</name>
+				<name>cura_ship_called</name>
+				<name>cura_dusk_called</name>
+				<name>cura_contract_called</name>
+			</req>
+			<req lvl="0" max_lvl="0">
+				<name>SEC SECRET_SYLVAN</name>
+				<name>SEC SECRET_TWISTED</name>
+				<name>SEC SECRET_HER</name>
+				<name>SEC SECRET_DYLAN</name>
+				<name>SEC SECRET_RHYME</name>
+				<name>SEC SECRET_RHYME_CHAOS</name>
+				<name>SEC SHOWDOWN_CASUAL</name>
+				<name>SEC SHOWDOWN_NORMAL</name>
+				<name>SEC SHOWDOWN_CHALLENGE</name>
+				<name>SEC SHOWDOWN_EXTREME</name>
+			</req>
+		</req>
+	</events>
+
+	<mod:findLike type="scripts">
+		<mod-append:script>data/inferno_core_scripts/dependancy.lua</mod-append:script><!--The script folders are named differently because of issues when two script files share the same path.-->
+		<mod-append:script>data/inferno_core_scripts/utility.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/callbacks.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/antiAugments.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/systems.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/weapon_fire.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/weapon_impact.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/screen_effects.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/augmentInfoBoxes.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/dialogueBoxes.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/resist_indicators.lua</mod-append:script>
+		<mod-append:script>data/inferno_core_scripts/patch_error.lua</mod-append:script>
+		
+		<mod-append:script>data/inferno_core_scripts/autoUtil.lua</mod-append:script><!--this was in AutoLibrary-->
+	</mod:findLike>
+	
+	<mod:findLike type="events" limit="1">
+		<!--Use this to check if the player ship is automated by default-->
+		<mod-append:variable name="is_base_automated" op="set" val="0"/>
+		<!--Used for the overrideBaseAutomated function because you can't save Lua variables yet-->
+		<mod-append:variable name="override_base_automated" op="set" val="0"/>
+	</mod:findLike>
+
+	<augments>
+		<aug name="IMMUNE">
+			<function name="SYSTEM_CASING" value="1" useForReqs="true" warning="false"/>
+			<function name="ROCK_ARMOR" value="1" useForReqs="true" warning="false"/>
+			<function name="ION_ARMOR" value="1" useForReqs="true" warning="false"/>
+			<function name="SLUG_GEL" value="999" useForReqs="true" warning="false"/>
+			<function name="FIRE_EXTINGUISHERS" value="999" useForReqs="true" warning="false"/>
+			<statBoosts>
+				<statBoost name="allDamageTakenMultiplier">
+					<boostType>SET</boostType>
+					<amount>0</amount>
+					<shipTarget>CURRENT_SHIP</shipTarget>
+					<crewTarget>ORIGINAL_ALLIES</crewTarget>
+					<priority>999999</priority>
+				</statBoost>
+				<statBoost name="sabotageSpeedMultiplier">
+					<boostType>SET</boostType>
+					<amount>0</amount>
+					<shipTarget>CURRENT_SHIP</shipTarget>
+					<crewTarget>ALL</crewTarget>
+					<priority>999999</priority>
+				</statBoost>
+			</statBoosts>
+		</aug>
+		<aug name="IMMUNE_2">
+			<function name="SYSTEM_CASING" value="1" useForReqs="true" warning="false"/>
+			<function name="ROCK_ARMOR" value="1" useForReqs="true" warning="false"/>
+			<function name="ION_ARMOR" value="1" useForReqs="true" warning="false"/>
+			<function name="FMCORE_NO_BREACH" value="10" useForReqs="true" warning="false"/>
+			<function name="FMCORE_NO_FIRE" value="10" useForReqs="true" warning="false"/>
+			<function name="SLUG_GEL" value="999" useForReqs="true" warning="false"/>
+			<function name="FIRE_EXTINGUISHERS" value="999" useForReqs="true" warning="false"/>
+			<statBoosts>
+				<statBoost name="allDamageTakenMultiplier">
+					<boostType>SET</boostType>
+					<amount>0</amount>
+					<shipTarget>CURRENT_SHIP</shipTarget>
+					<crewTarget>ORIGINAL_ALLIES</crewTarget>
+					<priority>999999</priority>
+				</statBoost>
+				<statBoost name="sabotageSpeedMultiplier">
+					<boostType>SET</boostType>
+					<amount>0</amount>
+					<shipTarget>CURRENT_SHIP</shipTarget>
+					<crewTarget>ALL</crewTarget>
+					<priority>999999</priority>
+				</statBoost>
+			</statBoosts>
+		</aug>
+		<aug name="FAST_WEAPONS">
+			<function name="AUTO_COOLDOWN" value="9" useForReqs="true"/>
+		</aug>
+		<aug name="FASTER_WEAPONS">
+			<function name="AUTO_COOLDOWN" value="49" useForReqs="true"/>
+		</aug>
+		<aug name="FASTEST_WEAPONS">
+			<function name="AUTO_COOLDOWN" value="9999" useForReqs="true"/>
+		</aug>
+	</augments>
+
+</FTL>

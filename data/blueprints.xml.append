@@ -1,0 +1,348 @@
+<augBlueprint name="FAST_MIND">
+	<title>Mind Control Accelerator</title>
+	<desc>Reduces the cooldown of the Mind Control System by 5 seconds.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--One cycle of ion-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FAST_CLOAK">
+	<title>Cloaking Accelerator</title>
+	<desc>Reduces the cooldown of the Cloaking System by 5 seconds.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--One cycle of ion-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FAST_HACK">
+	<title>Hacking Accelerator</title>
+	<desc>Reduces the cooldown of the Hacking System by 5 seconds.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--One cycle of ion-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FAST_TEMPORAL">
+	<title>Temporal Accelerator</title>
+	<desc>Reduces the cooldown of the Temporal System by 5 seconds.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--One cycle of ion-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FAST_TELEPORT"><!--kinda redundant but eh-->
+	<title>Teleporter Accelerator</title>
+	<desc>Reduces the cooldown of the Teleporter System by 5 seconds.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--One cycle of ion-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FAST_BATTERY"><!--kinda redundant but eh-->
+	<title>Battery Accelerator</title>
+	<desc>Reduces the cooldown of the Temporal System by 5 seconds.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--One cycle of ion-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="LONG_MIND">
+	<title>Mind Control Lengthener</title>
+	<desc>Doubles the length of the Mind Control System's uptime.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--Doubles the effect duration-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="LONG_HACK">
+	<title>Hacking Lengthener</title>
+	<desc>Doubles the length of the Hacking System's uptime.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--Doubles the effect duration-->
+	<stackable>true</stackable>
+</augBlueprint>
+<augBlueprint name="LONG_BATTERY">
+	<title>Battery Lengthener</title>
+	<desc>Doubles the length of the Battery System's uptime.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--Doubles the effect duration-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="HACKING_DAMAGE">
+	<title>Corrosive Hacking</title>
+	<desc>The Hacking System now does system damage.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>5</value><!--'Sabotage' rate-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="IMMUNE">
+	<title>Total Immunity</title>
+	<desc>Immunity to all forms of damage, fires, breaches, and sabotage. You can't hurt me, Jack.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<stackable>true</stackable>
+</augBlueprint>
+<augBlueprint name="IMMUNE_2">
+	<title>True Total Immunity</title>
+	<desc>Immunity to all forms of damage, fires, breaches, and sabotage, fires and breaches cannot be created by guns. You can't hurt me, Jack.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FAST_WEAPONS">
+	<title>Fast Weapons</title>
+	<desc>Speeds up weapon charging by 10x</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<stackable>true</stackable>
+</augBlueprint>
+
+
+<augBlueprint name="FASTER_WEAPONS">
+	<title>Faster Weapons</title>
+	<desc>Speeds up weapon charging by 50x</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FASTEST_WEAPONS">
+	<title>Fastest Weapons</title>
+	<desc>Speeds up weapon charging by 10,000x</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="WEAPON_LOCKDOWN">
+	<title>Weapon Lockdown Core</title>
+	<desc>Causes all non-beam weapons to apply lockdown</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+    <value>1</value>
+	<stackable>false</stackable>
+</augBlueprint>
+
+
+<augBlueprint name="AUG_BEAM_PIERCE">
+	<title>Beam Phase Frequencies</title>
+	<desc>Grants all beam weapons +1 shield piercing.</desc>
+	<cost>80</cost>
+	<rarity>0</rarity>
+	<value>1</value><!--Shield Piercing-->
+	<stackable>true</stackable>
+</augBlueprint>
+<augBlueprint name="AUG_EVERYTHING_PIERCE">
+	<title>Literally Everything Phase Frequencies</title>
+	<desc>Grants all weapons +1 shield piercing.</desc>
+	<cost>80</cost>
+	<rarity>0</rarity>
+	<value>1</value><!--Shield Piercing-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="AUG_BEAM_PIERCE_DRONE">
+	<title>Beam Phase Frequencies</title>
+	<desc>Grants all beam drones +1 shield piercing.</desc>
+	<cost>80</cost>
+	<rarity>0</rarity>
+	<value>1</value><!--Shield Piercing-->
+	<stackable>true</stackable>
+</augBlueprint>
+<augBlueprint name="AUG_EVERYTHING_PIERCE_DRONE">
+	<title>Literally Everything Phase Frequencies</title>
+	<desc>Grants all drones +1 shield piercing.</desc>
+	<cost>80</cost>
+	<rarity>0</rarity>
+	<value>1</value><!--Shield Piercing-->
+	<stackable>true</stackable>
+</augBlueprint>
+
+
+<augBlueprint name="RADIUS_REDUCTION">
+	<title>Radius Reduction</title>
+	<desc>Reduces weapon radius by 10.</desc>
+	<cost>80</cost>
+	<rarity>0</rarity>
+	<value>10</value>
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FIRE_IMMUNITY">
+	<title>Fire Immunity</title>
+	<desc>Systems don't take fire damage.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value>
+	<stackable>true</stackable>
+</augBlueprint>
+
+
+<augBlueprint name="DEIONIZATION_BOOST">
+	<title>Deipnization Booster</title>
+	<desc>Ion damage is removed faster.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value>
+	<stackable>true</stackable>
+</augBlueprint>
+
+<!--negative values would actually cause an increase to effects-->
+<augBlueprint name="FMCORE_NO_BREACH">
+	<title>Breach Repellent</title>
+	<desc>Reduces breach chance of attack by 10%</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--equal to 10% flat reduction-->
+	<stackable>true</stackable>
+</augBlueprint>
+<augBlueprint name="FMCORE_NO_FIRE">
+	<title>Fire Repellent</title>
+	<desc>Reduces fire chance of attack by 10%</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value><!--equal to 10% flat reduction-->
+	<stackable>true</stackable>
+</augBlueprint>
+<augBlueprint name="FMCORE_ASTEROID_RESIST_HULL">
+	<title>Anti-Asteroid Plating</title>
+	<desc>Asteroids do no damage to your ship.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value>
+	<stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="FMCORE_ASTEROID_RESIST_SHIELD">
+	<title>Anti-Asteroid Shielding</title>
+	<desc>Asteroids do not pop shields.</desc>
+	<cost>45</cost>
+	<bp>4</bp>
+	<rarity>0</rarity>
+	<value>1</value>
+	<stackable>true</stackable>
+</augBlueprint>
+
+
+<mod:findName type="weaponBlueprint" name="BEAM_REPAIR">
+	<mod-overwrite:sp>-1</mod-overwrite:sp>
+</mod:findName>
+
+<FTL><!-- AutoLib stuff-->
+	<!--
+	DO NOT USE ANY OF THESE AUGMENTS DIRECTLY!
+	Instead, create an augment that will use the function, then create hyperspace.xml.append and put something like:
+	
+	<mod:findLike type="augments">
+		<mod-append:aug name="YOUR_AUG_ID">
+			<function name="AUTOMATED_SHIP" value="1"/>
+		</mod-append:aug>
+		... (any other augments, in the same format)
+	</mod:findLike>
+	
+	in it.
+	-->
+	
+	<!--
+	Augments with this function will make a ship become fully automated.
+	This includes: automatic repair, manning, and being able to play without crew.
+	
+	A value of 0 will make the augment do nothing (except count for blue options)
+	Setting value higher than 1 increases the manning level and repair speed, in the same way as AUTOMATED_MANNING and AUTOMATED_REPAIR.
+	
+	If you want a blue option that works for both an augment with this function and a ship that's automated by default, create a req type="any"
+	with this augment and the variable is_base_automated.
+	-->
+	<augBlueprint name="AUTOMATED_SHIP">
+		<title>Automated Ship Function</title>
+		<desc>Makes your ship auto. YOU SHOULD NEVER SEE THIS.</desc>
+		<cost>0</cost>
+		<bp>4</bp>
+		<rarity>0</rarity>
+		<value>1</value>
+		<stackable>true</stackable>
+	</augBlueprint>
+	
+	<!--
+	Augments with this function will make a ship man systems without needing crew assigned.
+	This will not: automatically repair, or allow you to play without crew.
+	
+	Setting value higher than 1 increases the level of manning:
+	
+	Function level 0 will do nothing (except count for blue options)
+	Function level 1 will give unskilled manning
+	Function level 2 will give level 1 manning
+	Function level 3+ will give level 2 manning
+	Negative function values will subtract from other auto-manning augments or the auto-manning of base Auto-Ships.
+	However, it will not subtract piloting if it would become 0.
+	
+	You can use this function with AUTOMATED_SHIP or a normal Auto-Ship with no problems. Just subtract one from the value you want.
+	So if you wanted an Auto-Ship that manned at level 2 skills, you could give it an augment with this function at a value of 2.
+	-->
+	<augBlueprint name="AUTOMATED_MANNING">
+		<title>Automated Manning Function</title>
+		<desc>Mans ship systems. YOU SHOULD NEVER SEE THIS.</desc>
+		<cost>0</cost>
+		<bp>4</bp>
+		<rarity>0</rarity>
+		<value>1</value>
+		<stackable>true</stackable>
+	</augBlueprint>
+	
+	<!--
+	Augments with this function will make a ship automatically repair systems.
+	This will not: man systems, or allow you to play without crew.
+	
+	The speed of repair is multiplied by the value. For example,
+	Function level 1 is the normal Auto-Ship repair speed
+	Function level 0.5 is half the normal Auto-Ship repair speed
+	Function level 2 is double the normal Auto-Ship repair speed
+	Function level -1 won't damage systems, but will reverse repairs.
+	
+	You can use this function with AUTOMATED_SHIP or a normal Auto-Ship with no problems. However, it will add the repair speed to the normal Auto-Ship repair speed.
+	So if you wanted an Auto-Ship that repaired at double speed, you would give it an augment with this function at a value of 1.
+	-->
+	<augBlueprint name="AUTOMATED_REPAIR">
+		<title>Automated Repair Function</title>
+		<desc>Repairs ship systems. YOU SHOULD NEVER SEE THIS.</desc>
+		<cost>0</cost>
+		<bp>4</bp>
+		<rarity>0</rarity>
+		<value>1</value>
+		<stackable>true</stackable>
+	</augBlueprint>
+</FTL>
