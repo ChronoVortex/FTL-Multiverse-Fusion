@@ -1,1 +1,1 @@
-Placeholder
+Welcome to the Fusion wiki!
