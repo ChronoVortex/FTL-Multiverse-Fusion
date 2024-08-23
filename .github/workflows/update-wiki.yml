@@ -3,7 +3,7 @@ name: Update Wiki
 on:
   push:
     paths:
-      - '_wiki/**'
+      - '_wiki/content**'
     branches:
       - main
 
@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Update wiki
-        run: ./_update_wiki.sh 
+        run: ./_wiki/update.sh 
         shell: bash
         env:       
-          WIKI_DIR: _wiki
+          WIKI_DIR: _wiki/content
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
