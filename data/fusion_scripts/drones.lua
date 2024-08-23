@@ -1,6 +1,6 @@
-vter = mods.inferno.vter
-mods.inferno.chainDrones={}
-mods.inferno.chainDrones.DRONE_MISSILES={scaling=0.1, max="10"}
+vter = mods.fusion.vter
+mods.fusion.chainDrones={}
+mods.fusion.chainDrones.DRONE_MISSILES={scaling=0.1, max="10"}
 
 --this is currently not active but maybe will lead to something
 

@@ -1,4 +1,4 @@
-local dialogueBox = mods.inferno.dialogueBox
+local dialogueBox = mods.fusion.dialogueBox
 
 tutorialBox = dialogueBox:New {
   font = 1, --The font that the dialogue is rendered in
@@ -49,24 +49,3 @@ local shipStatBox = dialogueBox:New {
 		end
 	end,
 }
-
-script.on_render_event(Defines.RenderEvents.MAIN_MENU, function() end, 
-function()
-  local playerShip = nil
-	playerShip = Hyperspace.ships.player
-  if Hyperspace.Global.GetInstance():GetCApp().menu.shipBuilder.bOpen and playerShip then
-		local shipBlueprint = playerShip.myBlueprint
-		local crewCap = Hyperspace.CustomShipSelect.GetInstance():GetDefinition(shipBlueprint.blueprintName).crewLimit
-		local sysCap = Hyperspace.CustomShipSelect.GetInstance():GetDefinition(shipBlueprint.blueprintName).systemLimit
-    shipStatBox.text[1] = string.format(
-    "Hull: %i    Weapons: %i    Drones: %i\n}: %i    |: %i\nCrew Cap: %i    System Cap: %i", 
-    shipBlueprint.health,
-    shipBlueprint.weaponSlots,
-    shipBlueprint.droneSlots,
-    shipBlueprint.missiles,
-    shipBlueprint.drone_count,
-    crewCap or 8,
-    sysCap or 8)
-    shipStatBox:Render()
-  end
-end)

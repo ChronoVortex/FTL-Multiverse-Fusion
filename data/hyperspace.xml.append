@@ -1,4 +1,4 @@
-<FTL><!--Inferno-Core-->
+<FTL><!--Fusion-->
 	<events>
 		<metaVariable name="fmcore_augbox_invert" op="set" val="0"/>
 		<variable name="fmcore_augbox_active" op="set" val="1"/>
@@ -82,20 +82,20 @@
 	</events>
 
 	<mod:findLike type="scripts">
-		<mod-append:script>data/inferno_core_scripts/dependancy.lua</mod-append:script><!--The script folders are named differently because of issues when two script files share the same path.-->
-		<mod-append:script>data/inferno_core_scripts/utility.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/callbacks.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/antiAugments.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/systems.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/weapon_fire.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/weapon_impact.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/screen_effects.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/augmentInfoBoxes.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/dialogueBoxes.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/resist_indicators.lua</mod-append:script>
-		<mod-append:script>data/inferno_core_scripts/patch_error.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/dependancy.lua</mod-append:script><!--The script folders are named differently because of issues when two script files share the same path.-->
+		<mod-append:script>data/fusion_scripts/utility.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/callbacks.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/antiAugments.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/systems.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/weapon_fire.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/weapon_impact.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/screen_effects.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/augmentInfoBoxes.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/dialogueBoxes.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/resist_indicators.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/patch_error.lua</mod-append:script>
 		
-		<mod-append:script>data/inferno_core_scripts/autoUtil.lua</mod-append:script><!--this was in AutoLibrary-->
+		<mod-append:script>data/fusion_scripts/autoUtil.lua</mod-append:script><!--this was in AutoLibrary-->
 	</mod:findLike>
 	
 	<mod:findLike type="events" limit="1">

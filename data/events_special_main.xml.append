@@ -1,4 +1,4 @@
-<FTL><!--Inferno-Core-->
+<FTL><!--Fusion-->
 	<mod:findName type="event" name="START_BEACON_REAL">
 		<mod-append:triggeredEvent name="FMCORE_ONJUMP" event="FMCORE_ONJUMP">
 			<jumps amount="1" type="0"/>

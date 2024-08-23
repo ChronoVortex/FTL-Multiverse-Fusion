@@ -1,6 +1,6 @@
-mods.inferno = {}
+mods.fusion = {}
 
-mods.inferno.vter = function(cvec)
+mods.fusion.vter = function(cvec)
   local i = -1 --so the first returned value is indexed at zero
   local n = cvec:size()
   return function ()
@@ -8,7 +8,7 @@ mods.inferno.vter = function(cvec)
       if i < n then return cvec[i] end
   end
 end
-mods.inferno.real_projectile = function(projectile) --replace when we have access to the death animation and can check directly
+mods.fusion.real_projectile = function(projectile) --replace when we have access to the death animation and can check directly
   return not(projectile.damage.iDamage == 0 and
     projectile.damage.iShieldPiercing == 0 and
     projectile.damage.fireChance == 0 and
@@ -25,7 +25,7 @@ mods.inferno.real_projectile = function(projectile) --replace when we have acces
     projectile.damage.bFriendlyFire == true and
     projectile.damage.iStun == 0)
 end
-mods.inferno.randomInt = function(min,max)
+mods.fusion.randomInt = function(min,max)
   if math.floor(min) ~= min or math.floor(max) ~= max then
     error("randomInt function recieved non-integer inputs!", 2) 
   end
@@ -35,7 +35,7 @@ mods.inferno.randomInt = function(min,max)
   return (Hyperspace.random32() % (max - min + 1)) + min
 end
 
-function mods.inferno.GetLimitAmount(ShipSystem)
+function mods.fusion.GetLimitAmount(ShipSystem)
   --Limit priority is loss, limit, divide, as in divide overrides both loss and limit, and limit overrides loss
   local absolute_max_bars = ShipSystem.powerState.second --Maximum power level
   local current_max_bars = ShipSystem:GetPowerCap() --Only considers limit and divide events, not loss, this only matters if loss is the ONLY type of <status>
@@ -48,12 +48,12 @@ function mods.inferno.GetLimitAmount(ShipSystem)
   end
 end
 
-function mods.inferno.SetLimitAmount(ShipSystem, limit)
+function mods.fusion.SetLimitAmount(ShipSystem, limit)
   ShipSystem:ClearStatus()
   ShipSystem:SetPowerLoss(limit)
 end
 
-function mods.inferno.GetRoom(ShipManager, Location)
+function mods.fusion.GetRoom(ShipManager, Location)
   local ShipGraph = Hyperspace.ShipGraph.GetShipInfo(ShipManager.iShipId)
   local roomNumber = ShipGraph:GetSelectedRoom(Location.x, Location.y, true)
   if roomNumber ~= -1 then
@@ -61,7 +61,7 @@ function mods.inferno.GetRoom(ShipManager, Location)
   end
 end
 
-mods.inferno.dialogueBox = {
+mods.fusion.dialogueBox = {
   --Set these members in constructor
   x = 0, 
   y = 0,
@@ -153,7 +153,7 @@ local function timeIndex()
   end
 end
 
-mods.inferno.EffectVector = { 
+mods.fusion.EffectVector = { 
   lastVal = 0,
   Update = function(self)
     local modifier = 0
@@ -187,7 +187,7 @@ mods.inferno.EffectVector = {
   end,
 }
 
-mods.inferno.RoomEffect = {
+mods.fusion.RoomEffect = {
   borderColor = Graphics.GL_Color(),
   roomColor = Graphics.GL_Color(),
 
@@ -228,6 +228,6 @@ mods.inferno.RoomEffect = {
   end,
 }
 
-function mods.inferno.DefaultTable(table)
+function mods.fusion.DefaultTable(table)
   return setmetatable(table, {__index = function(table, key) return table.DEFAULT end})
 end

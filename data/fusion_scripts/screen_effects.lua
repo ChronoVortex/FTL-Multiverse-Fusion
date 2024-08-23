@@ -59,7 +59,7 @@ do
 		end, 
 	}
 	script.on_render_event(Defines.RenderEvents.MOUSE_CONTROL, function() end, function() ScreenFader:Render() end) 
-	mods.inferno.ScreenFade = function(table)
+	mods.fusion.ScreenFade = function(table)
 		return ScreenFader:Start(table) 
 	end
 end
@@ -82,7 +82,7 @@ do
 			shakeTimer = shakeTimer + TimeIncrement(true)
 		end
 	end)
-	mods.inferno.ScreenShake = function(seconds)
+	mods.fusion.ScreenShake = function(seconds)
 		shakeTimer = 0
 		shakeDuration = seconds
 	end

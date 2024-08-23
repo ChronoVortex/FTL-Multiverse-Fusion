@@ -1,7 +1,7 @@
 local function CreateDefaultPrimitive(path)
   return Hyperspace.Resources:CreateImagePrimitiveString(path, 0, 0, 0, Graphics.GL_Color(1, 1, 1, 1), 1.0, false)
 end
-mods.inferno.augBoxes = {}
+mods.fusion.augBoxes = {}
 --Info Box Class
 local augBox = {
   --Member Variables
@@ -79,7 +79,7 @@ local augBoxes = {
       return shipId==0
     end,
   },
-  --inferno-core stuff
+  --fusion-core stuff
   augBox:New {
     augName = "DEIONIZATION_BOOST",
     baseValue = 5,
@@ -223,7 +223,7 @@ function()
 end)
 --]]
 --
-mods.inferno.augBoxes.augBoxBoxes={
+mods.fusion.augBoxes.augBoxBoxes={
   [0] = augBoxBox:New {
     shipId = 0,
     defaultX = 110,
@@ -248,7 +248,7 @@ mods.inferno.augBoxes.augBoxBoxes={
   },
 }
 
-local augBoxBoxes = mods.inferno.augBoxes.augBoxBoxes
+local augBoxBoxes = mods.fusion.augBoxes.augBoxBoxes
 script.on_internal_event(Defines.InternalEvents.ON_MOUSE_R_BUTTON_DOWN, function() augBoxBoxes[0]:dragBegin() augBoxBoxes[1]:dragBegin() end)
     script.on_internal_event(Defines.InternalEvents.ON_MOUSE_R_BUTTON_UP, function()
       augBoxBoxes[0].dragging = false

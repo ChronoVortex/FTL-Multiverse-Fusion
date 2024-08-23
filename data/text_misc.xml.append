@@ -1,8 +1,8 @@
-<FTL><!-- Inferno-Core-->
-	<text name="addon_hover_fmcore">INFERNO-CORE
+<FTL><!-- Fusion-->
+	<text name="addon_hover_fmcore">FUSION
 	Currently Enabled.
 	Click to see more info.</text>
-	<text name="info_addon_fmcore">INFERNO-CORE
+	<text name="info_addon_fmcore">FUSION
 	Developed by: Kommandant_Julk and Vertaalfout
 	Currently Enabled.
 
@@ -14,7 +14,7 @@
 	- Info buttons for some addons
 	- some framework stuff for Forgemaster
 	- some system cooldown related augment implementations
-	(if an addon says disabled despite being patched in it was patched above Inferno-Core or isn't updated to support the buttons)
+	(if an addon says disabled despite being patched in it was patched above Fusion or isn't updated to support the buttons)
 	</text>
 
 	<text name="addon_hover_forgemaster">FORGEMASTER
@@ -26,7 +26,7 @@
 
 	A major expansion for Multiverse! It includes new NPCs, quests, weapons, sectors, bosses, and more. Drones and augments are coming soon! The primary new feature is: the weapon crafting system, which allows you to combine
 	numerous weapon combinations into stronger variants (or at the very least, side-grades).These weapons are intended to shine brightest when used on ships with less weapon slots and make use of the newest most complex features hyperspace has to offer for a completely unique feel! New tooltips will appear on weapon components that can be used for crafting!
-	(the addon Inferno-Core was designed for)
+	(the addon Fusion was designed for)
 
 	To enable Forgemaster, go to the mulvierse forums!
 	</text>

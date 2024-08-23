@@ -1,5 +1,8 @@
-local vter = mods.inferno.vter
-local RoomEffect = mods.inferno.RoomEffect
+local vter = mods.fusion.vter
+local RoomEffect = mods.fusion.RoomEffect
+
+mods.fusion.roomEffectShips = {}
+local roomEffectShips = mods.fusion.roomEffectShips
 
 local ionResistEffect = RoomEffect:New {
   borderColor = Graphics.GL_Color(21 / 255, 62 / 255, 61 / 255, 1),
@@ -86,14 +89,16 @@ local rightShield = ResistIcon:New {
 
 script.on_render_event(Defines.RenderEvents.SHIP_FLOOR, function(Ship, experimental) end,
 function(Ship, experimental)
-  for room in vter(Ship.vRoomList) do
-    if not room.bBlackedOut then
-      local sysResist = room.extend.sysDamageResistChance
-      local ionResist = room.extend.ionDamageResistChance
-      if sysResist > ionResist and sysResist > 0 then
-        systemResistEffect:Render(room)
-      elseif ionResist >= sysResist and ionResist > 0 then
-        ionResistEffect:Render(room)
+  if roomEffectShips[Ship.myBlueprint.blueprintName] then
+    for room in vter(Ship.vRoomList) do
+      if not room.bBlackedOut then
+        local sysResist = room.extend.sysDamageResistChance
+        local ionResist = room.extend.ionDamageResistChance
+        if sysResist > ionResist and sysResist > 0 then
+          systemResistEffect:Render(room)
+        elseif ionResist >= sysResist and ionResist > 0 then
+          ionResistEffect:Render(room)
+        end
       end
     end
   end
@@ -101,37 +106,38 @@ end)
 
 script.on_render_event(Defines.RenderEvents.SHIP_MANAGER, function(ShipManager, showInterior, doorControlMode) end,
 function(ShipManager, showInterior, doorControlMode)
-  local canSeeRooms = false
- 
-  if ShipManager.iShipId == 1 then
-      canSeeRooms = (ShipManager._targetable.hostile and (not ShipManager:HasSystem(10) or not ShipManager.cloakSystem.bTurnedOn)) or ShipManager.bContainsPlayerCrew
-  else
-      canSeeRooms = ShipManager.bShowRoom
-  end
-
-  canSeeRooms = canSeeRooms and not ShipManager.bDestroyed and not ShipManager.bJumping
+  if roomEffectShips[ShipManager.myBlueprint.blueprintName] then
+    local canSeeRooms = false
   
-  if canSeeRooms then
-    for room in vter(ShipManager.ship.vRoomList) do
-      local sysResist = room.extend.sysDamageResistChance
-      local ionResist = room.extend.ionDamageResistChance
-      if sysResist > 0 or ionResist > 0 then
-        Graphics.CSurface.GL_Translate(4, 4)
-        if sysResist <= 0 then
-          leftShield:Render(room, ionResist / 100, ionFill)
-          rightShield:Render(room, ionResist / 100)
-        elseif ionResist <= 0 then
-          leftShield:Render(room, sysResist / 100)
-          rightShield:Render(room, sysResist / 100, systemFill)
-        else
-          leftShield:Render(room, sysResist / 100)
-          rightShield:Render(room, ionResist / 100)
+    if ShipManager.iShipId == 1 then
+        canSeeRooms = (ShipManager._targetable.hostile and (not ShipManager:HasSystem(10) or not ShipManager.cloakSystem.bTurnedOn)) or ShipManager.bContainsPlayerCrew
+    else
+        canSeeRooms = ShipManager.bShowRoom
+    end
+
+    canSeeRooms = canSeeRooms and not ShipManager.bDestroyed and not ShipManager.bJumping
+    
+    if canSeeRooms then
+      for room in vter(ShipManager.ship.vRoomList) do
+        local sysResist = room.extend.sysDamageResistChance
+        local ionResist = room.extend.ionDamageResistChance
+        if sysResist > 0 or ionResist > 0 then
+          Graphics.CSurface.GL_Translate(4, 4)
+          if sysResist <= 0 then
+            leftShield:Render(room, ionResist / 100, ionFill)
+            rightShield:Render(room, ionResist / 100)
+          elseif ionResist <= 0 then
+            leftShield:Render(room, sysResist / 100)
+            rightShield:Render(room, sysResist / 100, systemFill)
+          else
+            leftShield:Render(room, sysResist / 100)
+            rightShield:Render(room, ionResist / 100)
+          end
+          Graphics.CSurface.GL_Translate(-4, -4)
         end
-        Graphics.CSurface.GL_Translate(-4, -4)
       end
     end
   end
- 
 end)
 --[[
 Renderlayer 0: Ship::OnRenderFloor (After) SHIP_FLOOR

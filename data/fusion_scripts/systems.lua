@@ -1,6 +1,6 @@
-local vter = mods.inferno.vter
-local real_projectile = mods.inferno.real_projectile
-local randomInt = mods.inferno.randomInt
+local vter = mods.fusion.vter
+local real_projectile = mods.fusion.real_projectile
+local randomInt = mods.fusion.randomInt
 
 script.on_system_event(
     Defines.SystemEvents.ON_SHUTDOWN,
@@ -66,10 +66,10 @@ function(ship, sys)
 end)
 
 --list of crew/drones that affect fire speed in a room
-mods.inferno.burnSpeedCrew ={
+mods.fusion.burnSpeedCrew ={
   --exampleCrew = {0.5, 2} --makes fires in your ship slower and those on enemy faster
 }
-local fireFaster = mods.inferno.burnSpeedCrew
+local fireFaster = mods.fusion.burnSpeedCrew
 script.on_internal_event(Defines.InternalEvents.SHIP_LOOP,
 function(shipManager)
   local roomFireMult = {}

@@ -1,4 +1,4 @@
-<FTL><!-- Inferno-Core-->
+<FTL><!-- Fusion-->
 	<event name="FMCORE_ATLAS_EQUIPMENT">
 		<text>Choose what you wish to do aboard the ship while in hyperspeed, you have several options.</text>
 		<choice hidden="true" req="FMCORE_CAN_USE_HS_AUG" blue="false">

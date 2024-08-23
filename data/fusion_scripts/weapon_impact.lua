@@ -1,6 +1,6 @@
 
 --DOCUMENTATION
-mods.inferno.popWeapons = {}
+mods.fusion.popWeapons = {}
 --[[ 
 Used for popping additional shield layers and doing additional damage to zoltan shields. 
 
@@ -8,9 +8,9 @@ count: Additional layers popped on impact. (Default of 0)
 countSuper: Additional damage to supershields on impact. (Default of 0)
 
 Usage:
-mods.inferno.popWeapons.FM_LASER_PHOTON = {count = 1, countSuper = 1}
+mods.fusion.popWeapons.FM_LASER_PHOTON = {count = 1, countSuper = 1}
 --]]
-mods.inferno.roomDamageWeapons = {}
+mods.fusion.roomDamageWeapons = {}
 --[[
 Used to modify the damage of non-beam weapons upon room impact.
 
@@ -19,9 +19,9 @@ ion: Additional ion damage on room impact. (Default of 0)
 sys: Additional system damage on room impact. (Default of 0)
 
 Usage:
-mods.inferno.roomDamageWeapons.FM_MISSILES_CLOAK_STUN_PLAYER = {hull = 0, ion = 3, sys = 0}
+mods.fusion.roomDamageWeapons.FM_MISSILES_CLOAK_STUN_PLAYER = {hull = 0, ion = 3, sys = 0}
 --]]
-mods.inferno.tileDamageWeapons = {}
+mods.fusion.tileDamageWeapons = {}
 --[[
 Used to apply additional damage on a per-tile basis for beam weapons.
 
@@ -30,9 +30,9 @@ ion: Additional ion damage on room impact. (Default of 0)
 sys: Additional system damage on room impact. (Default of 0)
 
 Usage:
-mods.inferno.tileDamageWeapons.FM_BEAM_ION_PIERCE = {ion = 1}
+mods.fusion.tileDamageWeapons.FM_BEAM_ION_PIERCE = {ion = 1}
 --]]
-mods.inferno.impactBeams = {}
+mods.fusion.impactBeams = {}
 --[[
 Simulates an impact of the specified weapon on a per-tile bases for beam weapons. (Will work best with LASER <weaponBlueprints>, but can work with others.)
 
@@ -40,16 +40,16 @@ This can be used to for more complex effects previously delegated to "crewjank" 
 IMPORTANT: set <accuracyMod> of the impact weapon if you want it to always hit
 
 Usage:
-mods.inferno.impactBeams.FM_BEAM_EXPLOSION = "FM_BEAM_EXPLOSION_LASER"
+mods.fusion.impactBeams.FM_BEAM_EXPLOSION = "FM_BEAM_EXPLOSION_LASER"
 --]]
-mods.inferno.bombBeams = {}
+mods.fusion.bombBeams = {}
 --[[
 Spawns a bomb on every hit tile (for beam weapons). Similar to impactBeams, except the bomb has to teleport in, and it grants visibility of the targetted room.
 
 Usage:
-mods.inferno.impactBeams.FM_BEAM_EXPLOSION = "FM_BEAM_EXPLOSION_BOMB"
+mods.fusion.impactBeams.FM_BEAM_EXPLOSION = "FM_BEAM_EXPLOSION_BOMB"
 --]]
-mods.inferno.impactWeapons = {}
+mods.fusion.impactWeapons = {}
 --[[
 Simulates an impact of the specified weapon on hit for projectile weapons weapons. (Will work best with LASER <weaponBlueprints>, but can work with others.)
 
@@ -57,24 +57,24 @@ This can be used to for more complex effects previously delegated to "crewjank" 
 IMPORTANT: set <accuracyMod> of the impact weapon if you want it to always hit
 
 Usage:
-mods.inferno.impactWeapons.FM_HOLYSHIT_10 = "FM_HOLYSHIT_10_EFFECT"
+mods.fusion.impactWeapons.FM_HOLYSHIT_10 = "FM_HOLYSHIT_10_EFFECT"
 --]]
-mods.inferno.hitEveryRoom = {}
+mods.fusion.hitEveryRoom = {}
 --[[
 Simulates a hit on every room in the ship. (Useful for applying shipwide statboosts.)
 
 Usage: 
-mods.inferno.hitEveryRoom.FM_TERMINUS = "FM_TERMINUS_STATBOOST"
+mods.fusion.hitEveryRoom.FM_TERMINUS = "FM_TERMINUS_STATBOOST"
 --]]
 
 --IMPLEMENTATION
-local vter = mods.inferno.vter
-local RoomEffect = mods.inferno.RoomEffect
-local GetRoom = mods.inferno.GetRoom
+local vter = mods.fusion.vter
+local RoomEffect = mods.fusion.RoomEffect
+local GetRoom = mods.fusion.GetRoom
 script.on_internal_event(Defines.InternalEvents.SHIELD_COLLISION, 
 function(ShipManager, Projectile, Damage, CollisionResponse)
     local shieldPower = ShipManager.shieldSystem.shields.power
-    local popData = mods.inferno.popWeapons[Projectile.extend.name]
+    local popData = mods.fusion.popWeapons[Projectile.extend.name]
     if popData then
         popData.count = popData.count or 0
         if shieldPower.super.first <= 0 and CollisionResponse.damage > Damage.iShieldPiercing then
@@ -88,7 +88,7 @@ end)
 script.on_internal_event(Defines.InternalEvents.SHIELD_COLLISION_PRE, 
 function(ShipManager, Projectile, Damage, CollisionResponse)
     local shieldPower = ShipManager.shieldSystem.shields.power
-    local popData = mods.inferno.popWeapons[Projectile.extend.name]
+    local popData = mods.fusion.popWeapons[Projectile.extend.name]
     if popData and shieldPower.super.first > 0 then
         popData.countSuper = popData.countSuper or 0
         Damage.iDamage = Damage.iDamage + popData.countSuper
@@ -99,7 +99,7 @@ end)
 script.on_internal_event(Defines.InternalEvents.DAMAGE_AREA, 
 function(ShipManager, Projectile, Location, Damage, forceHit, shipFriendlyFire)
     if Projectile then
-        local roomDamage = mods.inferno.roomDamageWeapons[Projectile.extend.name]
+        local roomDamage = mods.fusion.roomDamageWeapons[Projectile.extend.name]
         if roomDamage then
             Damage.iDamage = Damage.iDamage + (roomDamage.hull or 0)
             Damage.iIonDamage = Damage.iIonDamage + (roomDamage.ion or 0)
@@ -118,7 +118,7 @@ local function MakeDamage(table)
 end
 script.on_internal_event(Defines.InternalEvents.DAMAGE_BEAM, 
 function(ShipManager, Projectile, Location, Damage, realNewTile, beamHitType)
-    local tileDamage = mods.inferno.tileDamageWeapons[Projectile.extend.name]
+    local tileDamage = mods.fusion.tileDamageWeapons[Projectile.extend.name]
     if tileDamage and beamHitType ~= Defines.BeamHit.SAME_TILE then
         local weaponName = Projectile.extend.name
         Projectile.extend.name = ""
@@ -131,7 +131,7 @@ end)
 
 script.on_internal_event(Defines.InternalEvents.DAMAGE_BEAM, 
 function(ShipManager, Projectile, Location, Damage, realNewTile, beamHitType)
-    local impact = mods.inferno.impactBeams[Projectile.extend.name]
+    local impact = mods.fusion.impactBeams[Projectile.extend.name]
     if beamHitType ~= Defines.BeamHit.SAME_TILE and impact then
         local SpaceManager = Hyperspace.Global.GetInstance():GetCApp().world.space
         local blueprint = Hyperspace.Blueprints:GetWeaponBlueprint(impact)
@@ -148,7 +148,7 @@ end)
 
 script.on_internal_event(Defines.InternalEvents.DAMAGE_BEAM,
 function(ShipManager, Projectile, Location, Damage, realNewTile, beamHitType)
-    local bomb = mods.inferno.bombBeams[Projectile.extend.name]
+    local bomb = mods.fusion.bombBeams[Projectile.extend.name]
     if beamHitType ~= Defines.BeamHit.SAME_TILE and bomb then
         local SpaceManager = Hyperspace.Global.GetInstance():GetCApp().world.space
         local blueprint = Hyperspace.Blueprints:GetWeaponBlueprint(bomb)
@@ -164,7 +164,7 @@ end)
 script.on_internal_event(Defines.InternalEvents.DAMAGE_AREA, 
 function(ShipManager, Projectile, Location, Damage, forceHit, shipFriendlyFire)
     if Projectile then
-        local impact = mods.inferno.impactWeapons[Projectile.extend.name]
+        local impact = mods.fusion.impactWeapons[Projectile.extend.name]
         if impact then
             local SpaceManager = Hyperspace.Global.GetInstance():GetCApp().world.space
             local blueprint = Hyperspace.Blueprints:GetWeaponBlueprint(impact)
@@ -183,7 +183,7 @@ end)
 script.on_internal_event(Defines.InternalEvents.DAMAGE_AREA_HIT, 
 function(ShipManager, Projectile, Location, Damage, shipFriendlyFire)
     if Projectile then
-        local roomDamage = mods.inferno.hitEveryRoom[Projectile.extend.name]
+        local roomDamage = mods.fusion.hitEveryRoom[Projectile.extend.name]
         if roomDamage then
             local SpaceManager = Hyperspace.Global.GetInstance():GetCApp().world.space
             local blueprint = Hyperspace.Blueprints:GetWeaponBlueprint(roomDamage)
@@ -436,7 +436,7 @@ do
         end
     end)
 end
-function mods.inferno.setAcidWeapon(weapon,time)
+function mods.fusion.setAcidWeapon(weapon,time)
     AcidWeapons[weapon] = time
 end
 
