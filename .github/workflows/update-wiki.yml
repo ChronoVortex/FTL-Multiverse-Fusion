@@ -18,5 +18,5 @@ jobs:
         run: ./_update_wiki.sh 
         shell: bash
         env:       
-          WIKI_DIR: wiki
+          WIKI_DIR: _wiki
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
