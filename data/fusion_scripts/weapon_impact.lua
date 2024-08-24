@@ -207,11 +207,11 @@ end)
 
 --AUGMENT EFFECTS
 local function EffectResist(ShipManager, Damage)
-    local augValue = ShipManager:GetAugmentationValue("FMCORE_NO_BREACH")
+    local augValue = ShipManager:GetAugmentationValue("FUSION_NO_BREACH")
     if Damage.breachChance > 0 then --In cases of negative augValue, do not add breach chance to weapons without breach (Intentional)
         Damage.breachChance = math.max(0, Damage.breachChance - augValue)
     end
-    local augValue = ShipManager:GetAugmentationValue("FMCORE_NO_FIRE")
+    local augValue = ShipManager:GetAugmentationValue("FUSION_NO_FIRE")
     if Damage.fireChance > 0 then --In cases of negative augValue, do not add fire chance to weapons without fire (Intentional)
         Damage.fireChance = math.max(0, Damage.fireChance - augValue)
     end
@@ -290,7 +290,7 @@ do
     function(ShipManager, AugName, AugValue)
       if ResistAugs[AugName] and AsteroidResist then
         local chanceForDamage = 1 - AugValue
-        local chanceForAsteroidDamge = 1 - ShipManager:GetAugmentationValue("FMCORE_ASTEROID_RESIST_HULL")
+        local chanceForAsteroidDamge = 1 - ShipManager:GetAugmentationValue("FUSION_ASTEROID_RESIST_HULL")
         AugValue = 1 - (chanceForDamage * chanceForAsteroidDamge)
         if AugName == "SYSTEM_CASING" then
             --SYSTEM_CASING check happens last within DamageArea, so this is where AsteroidResist is set to false so that resist augs are only modified on asteroid impact
@@ -306,7 +306,7 @@ end
 script.on_internal_event(Defines.InternalEvents.SHIELD_COLLISION_PRE, 
 function(ShipManager, Projectile, Damage, CollisionResponse)
     --Chance is integer between 0 and 1.
-    local resChance = ShipManager:GetAugmentationValue("FMCORE_ASTEROID_RESIST_SHIELD") 
+    local resChance = ShipManager:GetAugmentationValue("FUSION_ASTEROID_RESIST_SHIELD") 
     local rng = math.random()
     if rng < resChance and Projectile:GetType() == 2 then
         return Defines.Chain.PREEMPT
@@ -443,7 +443,7 @@ end
 --[[--WIP
 script.on_internal_event(Defines.InternalEvents.SHIELD_COLLISION_PRE, 
 function(ShipManager, Projectile, Damage, CollisionResponse)
-    --local resChance = ShipManager:GetAugmentationValue("FMCORE_ASTEROID_RESIST_SHIELD")
+    --local resChance = ShipManager:GetAugmentationValue("FUSION_ASTEROID_RESIST_SHIELD")
     --local rng = math.random()
     local shieldPower = ShipManager:GetShieldPower()
     if Projectile:GetType() == 5 then

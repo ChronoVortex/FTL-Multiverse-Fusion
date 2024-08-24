@@ -208,7 +208,7 @@ local yOffset = 204
 
 script.on_render_event(Defines.RenderEvents.LAYER_PLAYER, function() end,
 function()
-  if not Hyperspace.ships.player.bJumping and Hyperspace.ships.player:HasEquipment("fmcore_augbox_active") == 1 then
+  if not Hyperspace.ships.player.bJumping and Hyperspace.ships.player:HasEquipment("fusion_augbox_active") == 1 then
     Graphics.CSurface.GL_PushMatrix()
     Graphics.CSurface.GL_LoadIdentity()
     Graphics.CSurface.GL_Translate(xOffset, yOffset)
@@ -260,7 +260,7 @@ script.on_internal_event(Defines.InternalEvents.ON_MOUSE_R_BUTTON_DOWN, function
     end)
 script.on_render_event(Defines.RenderEvents.LAYER_PLAYER, function() end,
 function()
-  if not Hyperspace.ships.player.bJumping and Hyperspace.ships.player:HasEquipment("FMCORE_AUGBOX_VISIBLE") == 1 then
+  if not Hyperspace.ships.player.bJumping and Hyperspace.ships.player:HasEquipment("FUSION_AUGBOX_VISIBLE") == 1 then
     augBoxBoxes[0]:Render()
     if Hyperspace.ships(1) then
       augBoxBoxes[1]:Render()
@@ -316,7 +316,7 @@ script.on_internal_event(Defines.InternalEvents.ON_MOUSE_R_BUTTON_UP, function()
 end)
 script.on_render_event(Defines.RenderEvents.LAYER_PLAYER, function() end,
 function()
-  if not Hyperspace.ships.player.bJumping and Hyperspace.ships.player:HasEquipment("fmcore_augbox_active") == 1 then
+  if not Hyperspace.ships.player.bJumping and Hyperspace.ships.player:HasEquipment("fusion_augbox_active") == 1 then
     local defaultX = defaultX
 	  local defaultY = defaultY
     local currentX = defaultX + offsetX

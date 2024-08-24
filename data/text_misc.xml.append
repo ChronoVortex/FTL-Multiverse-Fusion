@@ -1,8 +1,8 @@
 <FTL><!-- Fusion-->
-	<text name="addon_hover_fmcore">FUSION
+	<text name="addon_hover_fusion">FUSION
 	Currently Enabled.
 	Click to see more info.</text>
-	<text name="info_addon_fmcore">FUSION
+	<text name="info_addon_fusion">FUSION
 	Developed by: Kommandant_Julk
 	Currently Enabled.
 
