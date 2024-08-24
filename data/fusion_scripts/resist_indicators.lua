@@ -89,7 +89,7 @@ local rightShield = ResistIcon:New {
 
 script.on_render_event(Defines.RenderEvents.SHIP_FLOOR, function(Ship, experimental) end,
 function(Ship, experimental)
-  if roomEffectShips[Ship.myBlueprint.blueprintName] then
+  if roomEffectShips[Hyperspace.ships(Ship.iShipId).myBlueprint.blueprintName] then
     for room in vter(Ship.vRoomList) do
       if not room.bBlackedOut then
         local sysResist = room.extend.sysDamageResistChance
