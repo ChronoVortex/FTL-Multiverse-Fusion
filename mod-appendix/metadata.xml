@@ -2,7 +2,7 @@
   <title><![CDATA[ FUSION]]></title>
   <threadUrl><![CDATA[ https://github.com/ChronoVortex/FTL-Multiverse-Fusion ]]></threadUrl>
   <author><![CDATA[ Kommandant_Julk, Chrono Vortex, Arc, Pepson, Choosechee ]]></author>
-  <version><![CDATA[ 0.1.0 ]]></version>
+  <version><![CDATA[ 0.1.1 ]]></version>
   <description><![CDATA[
 This addon contains togglable QoL features, custom XML tags and Lua utility functions. It's designed to fill the dependency role previously occupied by Inferno-Core.
 ]]>
