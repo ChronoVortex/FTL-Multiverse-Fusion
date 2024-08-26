@@ -1,3 +1,5 @@
+local time_increment = mods.multiverse.time_increment
+
 mods.fusion = {}
 
 mods.fusion.vter = function(cvec)
@@ -230,4 +232,33 @@ mods.fusion.RoomEffect = {
 
 function mods.fusion.DefaultTable(table)
   return setmetatable(table, {__index = function(table, key) return table.DEFAULT end})
+end
+
+function mods.fusion.check_paused()
+  return Hyperspace.App.gui.bPaused or Hyperspace.App.gui.menu_pause or Hyperspace.App.gui.event_pause
+end
+local check_paused = mods.fusion.check_paused
+
+do
+  local delayedFuncs = {}
+  function mods.fusion.execute_func_delayed(func, args, delay, ignorePause)
+      table.insert(delayedFuncs, {func = func, args = args, time = delay, ignorePause = ignorePause or false})
+  end
+  script.on_internal_event(Defines.InternalEvents.ON_TICK, function()
+      local delayedFuncCount = #delayedFuncs
+      local index = 1
+      while index <= delayedFuncCount do
+          local delayedFuncData = delayedFuncs[index]
+          if delayedFuncData.ignorePause or not check_paused() then
+              delayedFuncData.time = delayedFuncData.time - time_increment()
+          end
+          if delayedFuncData.time <= 0 then
+              table.remove(delayedFuncs, index)
+              delayedFuncData.func(table.unpack(delayedFuncData.args))
+              delayedFuncCount = delayedFuncCount - 1
+          else
+              index = index + 1
+          end
+      end
+  end)
 end

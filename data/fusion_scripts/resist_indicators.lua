@@ -1,5 +1,7 @@
+local userdata_table = mods.multiverse.userdata_table
 local vter = mods.fusion.vter
 local RoomEffect = mods.fusion.RoomEffect
+local execute_func_delayed = mods.fusion.execute_func_delayed
 
 mods.fusion.roomEffectShips = {}
 local roomEffectShips = mods.fusion.roomEffectShips
@@ -85,20 +87,35 @@ local rightShield = ResistIcon:New {
 
 
 
+do
+  local function stop_draw_room_resist(room)
+    userdata_table(room, "mods.fusion.roomReist").draw = false
+  end
+  function mods.fusion.draw_room_resist_temp(ship, room, delay)
+    if not roomEffectShips[ship.myBlueprint.blueprintName] then
+      userdata_table(room, "mods.fusion.roomReist").draw = true
+      execute_func_delayed(stop_draw_room_resist, {room}, delay)
+    end
+  end
+end
+
+
+
 
 
 script.on_render_event(Defines.RenderEvents.SHIP_FLOOR, function(Ship, experimental) end,
 function(Ship, experimental)
-  if roomEffectShips[Hyperspace.ships(Ship.iShipId).myBlueprint.blueprintName] then
-    for room in vter(Ship.vRoomList) do
-      if not room.bBlackedOut then
-        local sysResist = room.extend.sysDamageResistChance
-        local ionResist = room.extend.ionDamageResistChance
-        if sysResist > ionResist and sysResist > 0 then
-          systemResistEffect:Render(room)
-        elseif ionResist >= sysResist and ionResist > 0 then
-          ionResistEffect:Render(room)
-        end
+  for room in vter(Ship.vRoomList) do
+    local drawResist = not room.bBlackedOut and
+                       (userdata_table(room, "mods.fusion.roomReist").draw or
+                       roomEffectShips[Hyperspace.ships(Ship.iShipId).myBlueprint.blueprintName])
+    if drawResist then
+      local sysResist = room.extend.sysDamageResistChance
+      local ionResist = room.extend.ionDamageResistChance
+      if sysResist > ionResist and sysResist > 0 then
+        systemResistEffect:Render(room)
+      elseif ionResist >= sysResist and ionResist > 0 then
+        ionResistEffect:Render(room)
       end
     end
   end
@@ -106,19 +123,21 @@ end)
 
 script.on_render_event(Defines.RenderEvents.SHIP_MANAGER, function(ShipManager, showInterior, doorControlMode) end,
 function(ShipManager, showInterior, doorControlMode)
-  if roomEffectShips[ShipManager.myBlueprint.blueprintName] then
-    local canSeeRooms = false
-  
-    if ShipManager.iShipId == 1 then
-        canSeeRooms = (ShipManager._targetable.hostile and (not ShipManager:HasSystem(10) or not ShipManager.cloakSystem.bTurnedOn)) or ShipManager.bContainsPlayerCrew
-    else
-        canSeeRooms = ShipManager.bShowRoom
-    end
+  local canSeeRooms = false
 
-    canSeeRooms = canSeeRooms and not ShipManager.bDestroyed and not ShipManager.bJumping
-    
-    if canSeeRooms then
-      for room in vter(ShipManager.ship.vRoomList) do
+  if ShipManager.iShipId == 1 then
+      canSeeRooms = (ShipManager._targetable.hostile and (not ShipManager:HasSystem(10) or not ShipManager.cloakSystem.bTurnedOn)) or ShipManager.bContainsPlayerCrew
+  else
+      canSeeRooms = ShipManager.bShowRoom
+  end
+
+  canSeeRooms = canSeeRooms and not ShipManager.bDestroyed and not ShipManager.bJumping
+  
+  if canSeeRooms then
+    for room in vter(ShipManager.ship.vRoomList) do
+      local drawResist = userdata_table(room, "mods.fusion.roomReist").draw or
+                         roomEffectShips[ShipManager.myBlueprint.blueprintName]
+      if drawResist then
         local sysResist = room.extend.sysDamageResistChance
         local ionResist = room.extend.ionDamageResistChance
         if sysResist > 0 or ionResist > 0 then
@@ -139,6 +158,7 @@ function(ShipManager, showInterior, doorControlMode)
     end
   end
 end)
+
 --[[
 Renderlayer 0: Ship::OnRenderFloor (After) SHIP_FLOOR
 Renderlayer 1 Ship::OnRenderBreaches (Before) SHIP_BREACHES
