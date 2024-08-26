@@ -19,7 +19,7 @@
  </event>
  <event name="FUSION_ONCREWZERO"/>
  <event name="FUSION_RESET" unused="true"><!-- use this if you installed mid-run to activate the effects-->
-   <text>Fusion ONJUMP, ONDAMAGE functions have been reset</text>
+   <text id="event_FUSION_RESET_text"/>
    <clearTriggeredEvent name="FUSION_ONJUMP"/>
    <clearTriggeredEvent name="FUSION_ONDAMAGE"/>
    <triggeredEvent name="FUSION_ONDAMAGE" event="FUSION_ONDAMAGE">
@@ -30,7 +30,7 @@
    </triggeredEvent>
  </event>
  <event name="FUSION_DEACTIVATE" unused="true"><!-- use this if you are updating mid-run, use FUSION_RESET after updating-->
-   <text>Fusion ONJUMP, ONDAMAGE disabled, updating should be safe now.</text>
+   <text id="event_FUSION_DEACTIVATE_text"/>
    <clearTriggeredEvent name="FUSION_ONJUMP"/>
    <clearTriggeredEvent name="FUSION_ONDAMAGE"/>
  </event>

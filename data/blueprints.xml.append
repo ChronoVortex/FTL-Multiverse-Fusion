@@ -1,6 +1,6 @@
 <augBlueprint name="FAST_MIND">
-	<title>Mind Control Accelerator</title>
-	<desc>Reduces the cooldown of the Mind Control System by 5 seconds.</desc>
+	<title id="fusion_aug_FAST_MIND_title"/>
+	<desc id="fusion_aug_FAST_MIND_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -9,8 +9,8 @@
 </augBlueprint>
 
 <augBlueprint name="FAST_CLOAK">
-	<title>Cloaking Accelerator</title>
-	<desc>Reduces the cooldown of the Cloaking System by 5 seconds.</desc>
+	<title id="fusion_aug_FAST_CLOAK_title"/>
+	<desc id="fusion_aug_FAST_CLOAK_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -19,8 +19,8 @@
 </augBlueprint>
 
 <augBlueprint name="FAST_HACK">
-	<title>Hacking Accelerator</title>
-	<desc>Reduces the cooldown of the Hacking System by 5 seconds.</desc>
+	<title id="fusion_aug_FAST_HACK_title"/>
+	<desc id="fusion_aug_FAST_HACK_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -29,8 +29,8 @@
 </augBlueprint>
 
 <augBlueprint name="FAST_TEMPORAL">
-	<title>Temporal Accelerator</title>
-	<desc>Reduces the cooldown of the Temporal System by 5 seconds.</desc>
+	<title id="fusion_aug_FAST_TEMPORAL_title"/>
+	<desc id="fusion_aug_FAST_TEMPORAL_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -39,8 +39,8 @@
 </augBlueprint>
 
 <augBlueprint name="FAST_TELEPORT"><!--kinda redundant but eh-->
-	<title>Teleporter Accelerator</title>
-	<desc>Reduces the cooldown of the Teleporter System by 5 seconds.</desc>
+	<title id="fusion_aug_FAST_TELEPORT_title"/>
+	<desc id="fusion_aug_FAST_TELEPORT_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -49,8 +49,8 @@
 </augBlueprint>
 
 <augBlueprint name="FAST_BATTERY"><!--kinda redundant but eh-->
-	<title>Battery Accelerator</title>
-	<desc>Reduces the cooldown of the Temporal System by 5 seconds.</desc>
+	<title id="fusion_aug_FAST_BATTERY_title"/>
+	<desc id="fusion_aug_FAST_BATTERY_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -59,8 +59,8 @@
 </augBlueprint>
 
 <augBlueprint name="LONG_MIND">
-	<title>Mind Control Lengthener</title>
-	<desc>Doubles the length of the Mind Control System's uptime.</desc>
+	<title id="fusion_aug_LONG_MIND_title"/>
+	<desc id="fusion_aug_LONG_MIND_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -69,8 +69,8 @@
 </augBlueprint>
 
 <augBlueprint name="LONG_HACK">
-	<title>Hacking Lengthener</title>
-	<desc>Doubles the length of the Hacking System's uptime.</desc>
+	<title id="fusion_aug_LONG_HACK_title"/>
+	<desc id="fusion_aug_LONG_HACK_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -78,8 +78,8 @@
 	<stackable>true</stackable>
 </augBlueprint>
 <augBlueprint name="LONG_BATTERY">
-	<title>Battery Lengthener</title>
-	<desc>Doubles the length of the Battery System's uptime.</desc>
+	<title id="fusion_aug_LONG_BATTERY_title"/>
+	<desc id="fusion_aug_LONG_BATTERY_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -88,8 +88,8 @@
 </augBlueprint>
 
 <augBlueprint name="HACKING_DAMAGE">
-	<title>Corrosive Hacking</title>
-	<desc>The Hacking System now does system damage.</desc>
+	<title id="fusion_aug_HACKING_DAMAGE_title"/>
+	<desc id="fusion_aug_HACKING_DAMAGE_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -98,16 +98,16 @@
 </augBlueprint>
 
 <augBlueprint name="IMMUNE">
-	<title>Total Immunity</title>
-	<desc>Immunity to all forms of damage, fires, breaches, and sabotage. You can't hurt me, Jack.</desc>
+	<title id="fusion_aug_IMMUNE_title"/>
+	<desc id="fusion_aug_IMMUNE_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
 	<stackable>true</stackable>
 </augBlueprint>
 <augBlueprint name="IMMUNE_2">
-	<title>True Total Immunity</title>
-	<desc>Immunity to all forms of damage, fires, breaches, and sabotage, fires and breaches cannot be created by guns. You can't hurt me, Jack.</desc>
+	<title id="fusion_aug_IMMUNE_2_title"/>
+	<desc id="fusion_aug_IMMUNE_2_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -115,8 +115,8 @@
 </augBlueprint>
 
 <augBlueprint name="FAST_WEAPONS">
-	<title>Fast Weapons</title>
-	<desc>Speeds up weapon charging by 10x</desc>
+	<title id="fusion_aug_FAST_WEAPONS_title"/>
+	<desc id="fusion_aug_FAST_WEAPONS_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -125,8 +125,8 @@
 
 
 <augBlueprint name="FASTER_WEAPONS">
-	<title>Faster Weapons</title>
-	<desc>Speeds up weapon charging by 50x</desc>
+	<title id="fusion_aug_FASTER_WEAPONS_title"/>
+	<desc id="fusion_aug_FASTER_WEAPONS_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -134,8 +134,8 @@
 </augBlueprint>
 
 <augBlueprint name="FASTEST_WEAPONS">
-	<title>Fastest Weapons</title>
-	<desc>Speeds up weapon charging by 10,000x</desc>
+	<title id="fusion_aug_FASTEST_WEAPONS_title"/>
+	<desc id="fusion_aug_FASTEST_WEAPONS_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -143,8 +143,8 @@
 </augBlueprint>
 
 <augBlueprint name="WEAPON_LOCKDOWN">
-	<title>Weapon Lockdown Core</title>
-	<desc>Causes all non-beam weapons to apply lockdown</desc>
+	<title id="fusion_aug_WEAPON_LOCKDOWN_title"/>
+	<desc id="fusion_aug_WEAPON_LOCKDOWN_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -154,16 +154,16 @@
 
 
 <augBlueprint name="AUG_BEAM_PIERCE">
-	<title>Beam Phase Frequencies</title>
-	<desc>Grants all beam weapons +1 shield piercing.</desc>
+	<title id="fusion_aug_AUG_BEAM_PIERCE_title"/>
+	<desc id="fusion_aug_AUG_BEAM_PIERCE_desc"/>
 	<cost>80</cost>
 	<rarity>0</rarity>
 	<value>1</value><!--Shield Piercing-->
 	<stackable>true</stackable>
 </augBlueprint>
 <augBlueprint name="AUG_EVERYTHING_PIERCE">
-	<title>Literally Everything Phase Frequencies</title>
-	<desc>Grants all weapons +1 shield piercing.</desc>
+	<title id="fusion_aug_AUG_EVERYTHING_PIERCE_title"/>
+	<desc id="fusion_aug_AUG_EVERYTHING_PIERCE_desc"/>
 	<cost>80</cost>
 	<rarity>0</rarity>
 	<value>1</value><!--Shield Piercing-->
@@ -171,16 +171,16 @@
 </augBlueprint>
 
 <augBlueprint name="AUG_BEAM_PIERCE_DRONE">
-	<title>Beam Phase Frequencies</title>
-	<desc>Grants all beam drones +1 shield piercing.</desc>
+	<title id="fusion_aug_AUG_BEAM_PIERCE_DRONE_title"/>
+	<desc id="fusion_aug_AUG_BEAM_PIERCE_DRONE_desc"/>
 	<cost>80</cost>
 	<rarity>0</rarity>
 	<value>1</value><!--Shield Piercing-->
 	<stackable>true</stackable>
 </augBlueprint>
 <augBlueprint name="AUG_EVERYTHING_PIERCE_DRONE">
-	<title>Literally Everything Phase Frequencies</title>
-	<desc>Grants all drones +1 shield piercing.</desc>
+	<title id="fusion_aug_AUG_EVERYTHING_PIERCE_DRONE_title"/>
+	<desc id="fusion_aug_AUG_EVERYTHING_PIERCE_DRONE_desc"/>
 	<cost>80</cost>
 	<rarity>0</rarity>
 	<value>1</value><!--Shield Piercing-->
@@ -189,8 +189,8 @@
 
 
 <augBlueprint name="RADIUS_REDUCTION">
-	<title>Radius Reduction</title>
-	<desc>Reduces weapon radius by 10.</desc>
+	<title id="fusion_aug_RADIUS_REDUCTION_title"/>
+	<desc id="fusion_aug_RADIUS_REDUCTION_desc"/>
 	<cost>80</cost>
 	<rarity>0</rarity>
 	<value>10</value>
@@ -198,8 +198,8 @@
 </augBlueprint>
 
 <augBlueprint name="FIRE_IMMUNITY">
-	<title>Fire Immunity</title>
-	<desc>Systems don't take fire damage.</desc>
+	<title id="fusion_aug_FIRE_IMMUNITY_title"/>
+	<desc id="fusion_aug_FIRE_IMMUNITY_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -209,8 +209,8 @@
 
 
 <augBlueprint name="DEIONIZATION_BOOST">
-	<title>Deipnization Booster</title>
-	<desc>Ion damage is removed faster.</desc>
+	<title id="fusion_aug_DEIONIZATION_BOOST_title"/>
+	<desc id="fusion_aug_DEIONIZATION_BOOST_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -220,8 +220,8 @@
 
 <!--negative values would actually cause an increase to effects-->
 <augBlueprint name="FUSION_NO_BREACH">
-	<title>Breach Repellent</title>
-	<desc>Reduces breach chance of attack by 10%</desc>
+	<title id="fusion_aug_FUSION_NO_BREACH_title"/>
+	<desc id="fusion_aug_FUSION_NO_BREACH_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -229,8 +229,8 @@
 	<stackable>true</stackable>
 </augBlueprint>
 <augBlueprint name="FUSION_NO_FIRE">
-	<title>Fire Repellent</title>
-	<desc>Reduces fire chance of attack by 10%</desc>
+	<title id="fusion_aug_FUSION_NO_FIRE_title"/>
+	<desc id="fusion_aug_FUSION_NO_FIRE_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -238,8 +238,8 @@
 	<stackable>true</stackable>
 </augBlueprint>
 <augBlueprint name="FUSION_ASTEROID_RESIST_HULL">
-	<title>Anti-Asteroid Plating</title>
-	<desc>Asteroids do no damage to your ship.</desc>
+	<title id="fusion_aug_FUSION_ASTEROID_RESIST_HULL_title"/>
+	<desc id="fusion_aug_FUSION_ASTEROID_RESIST_HULL_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>
@@ -248,8 +248,8 @@
 </augBlueprint>
 
 <augBlueprint name="FUSION_ASTEROID_RESIST_SHIELD">
-	<title>Anti-Asteroid Shielding</title>
-	<desc>Asteroids do not pop shields.</desc>
+	<title id="fusion_aug_FUSION_ASTEROID_RESIST_SHIELD_title"/>
+	<desc id="fusion_aug_FUSION_ASTEROID_RESIST_SHIELD_desc"/>
 	<cost>45</cost>
 	<bp>4</bp>
 	<rarity>0</rarity>

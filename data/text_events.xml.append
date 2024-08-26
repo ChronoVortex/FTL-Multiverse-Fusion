@@ -1,1 +1,20 @@
-<text name="do_something">Do something aboard the ship.</text>
+<FTL>
+    <text name="do_something">Do something aboard the ship.</text>
+    <text name="nevermind">Nevermind.</text>
+    <text name="event_FUSION_ATLAS_EQUIPMENT_text">Choose what you wish to do aboard the ship while in hyperspeed, you have several options.</text>
+    <text name="event_FUSION_ATLAS_EQUIPMENT_c1_text">Use a jumpspeed augment.</text>
+    <text name="event_FUSION_ATLAS_EQUIPMENT_c2_text">You already used a jumpspeed augment.</text>
+    <text name="event_FUSION_ATLAS_EQUIPMENT_c3_text">View available tasks from C.U.R.A.</text>
+    <text name="event_FUSION_ATLAS_EQUIPMENT_c4_text">You already accepted a C.U.R.A. task.</text>
+    <text name="event_ATLAS_MENU_NOEQUIPMENT_c_append_text">Proceed to the Federation Capital.</text>
+    <text name="event_ADDON_FUSION_INFO_c2_text">Enable Augment Stat Screen</text>
+    <text name="event_ADDON_FUSION_INFO_c3_text">Disable Augment Stat Screen</text>
+    <text name="event_ADDON_FUSION_INFO_c4_text">Enable Inverted Enabledness of Augment Stat Screen</text>
+    <text name="event_ADDON_FUSION_INFO_c5_text">Disable Inverted Enabledness of Augment Stat Screen</text>
+    <text name="event_ADDON_FUSION_INFO_c6_text">Show addon info buttons</text>
+    <text name="event_ADDON_FUSION_INFO_c7_text">Hide addon info buttons</text>
+    <text name="event_ADDON_FORGEMASTER_INFO_c2_text">Check Crafting recipes</text>
+    <text name="event_ADDON_PIP_INFO_c2_text">more info...</text>
+    <text name="event_FUSION_RESET_text">Fusion ONJUMP, ONDAMAGE functions have been reset.</text>
+    <text name="event_FUSION_DEACTIVATE_text">Fusion ONJUMP, ONDAMAGE disabled, updating should be safe now.</text>
+</FTL>

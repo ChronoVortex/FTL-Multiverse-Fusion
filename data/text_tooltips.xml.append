@@ -1,0 +1,6 @@
+<FTL>
+    <text name="inactiveTooltip_unavailable">Unavailable!</text>
+    <text name="inactiveTooltip_unavailable_in_danger">Unavailable: You cannot do this while in danger!</text>
+    <text name="tooltip_toggle_drone_weapon">Toggle a drone or weapon.</text>
+    <text name="tooltip_open_storage_nemu">Open the storage menu.</text>
+</FTL>

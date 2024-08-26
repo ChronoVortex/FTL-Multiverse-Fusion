@@ -1,19 +1,19 @@
 <FTL><!-- Fusion-->
 	<event name="FUSION_ATLAS_EQUIPMENT">
-		<text>Choose what you wish to do aboard the ship while in hyperspeed, you have several options.</text>
+		<text id="event_FUSION_ATLAS_EQUIPMENT_text"/>
 		<choice hidden="true" req="FUSION_CAN_USE_HS_AUG" blue="false">
-			<text>Use a jumpspeed augment.</text>
+			<text id="event_FUSION_ATLAS_EQUIPMENT_c1_text"/>
 			<event>
 				<loadEvent>ATLAS_EQUIPMENT</loadEvent>
 				<variable name="fusion_used_hs_aug" op="set" val="1"/>
 			</event>
 		</choice>
 		<choice hidden="true" req="fusion_used_hs_aug" blue="false">
-			<text>You already used a jumpspeed augment.</text>
+			<text id="event_FUSION_ATLAS_EQUIPMENT_c2_text"/>
 			<event load="OPTION_INVALID"/>
 		</choice>
 		<choice hidden="true" req="FUSION_CAN_CALL_CURA" blue="false">
-			<text>View available tasks from C.U.R.A.</text>
+			<text id="event_FUSION_ATLAS_EQUIPMENT_c3_text"/>
 			<event>
 				<loadEventList seeded="false" generate="false">
 					<event name="CURA_TASK_MENU" req="pilot"/>
@@ -23,11 +23,11 @@
 			</event>
 		</choice>
 		<choice hidden="true" req="fusion_called_cura" blue="false">
-			<text>You already accepted a C.U.R.A. task.</text>
+			<text id="event_FUSION_ATLAS_EQUIPMENT_c4_text"/>
 			<event load="OPTION_INVALID"/>
 		</choice>
 		<choice req="pilot" max_group="1" hidden="true" blue="false">
-			<text>Nevermind.</text>
+			<text id="nevermind"/>
 			<event load="LOAD_ATLAS"/>
 		</choice>
 	</event>
@@ -45,7 +45,7 @@
 			</mod:findLike>
 		</mod:findWithChildLike>
 		<mod-append:choice req="SEC FINAL" blue="false">
-			<text>Proceed to the Federation Capital.</text>
+			<text id="event_ATLAS_MENU_NOEQUIPMENT_c_append_text"/>
 			<event load="LASTSTAND_WARP"/>
 		</mod-append:choice>
 	</mod:findName>

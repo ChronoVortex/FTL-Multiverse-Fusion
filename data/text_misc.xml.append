@@ -94,17 +94,17 @@ Playtesters: Skye, Digger4Money
 	
 	To enable Alder's Additions, ask Alder for it.
 	</text>
-	<text name="addon_hover_cnc">C&C WEAPONS
+	<text name="addon_hover_cnc">C&amp;C WEAPONS
 	Currently Disabled.
 	Click to see more info.</text>
-	<text name="info_addon_cnc">C&C WEAPONS: RENEGADE EDITION
+	<text name="info_addon_cnc">C&amp;C WEAPONS: RENEGADE EDITION
 	Developed by: Chrono Vortex
 	Additional credit: Vertaalfout, R4V3-0N
 	Currently Disabled.
 
 	Adds over a dozen new weapons and a couple other surprises based on the Command and Conquer franchise. 
 
-	To enable C&C Weapons, go to the subset forums and visit the MV addon page!
+	To enable C&amp;C Weapons, go to the subset forums and visit the MV addon page!
 	</text>
 	<text name="addon_hover_pip">PIRACY IS POGGERS
 	Currently Disabled.
@@ -132,4 +132,11 @@ To enable Piracy is Poggers, go to the subset forums and visit the MV addon page
 	<text name="addon_hover_rad2">R&amp;D
 		Currently Disabled.
 		Click to see more info.</text>
+	<text name="info_addon_rad">R&amp;D
+Developed by: Arc
+Currently Disabled.
+  
+An addon designed around the use of Lua to create fun and unique gimmicks, this includes a variety of ships, weapons, crew, drones, and quests, although not entirely balanced they all try to introduce and focus on a unique gimmick you wouldn't find in MV otherwise.
+You can download it from the MV forums.
+    </text>
 </FTL>
