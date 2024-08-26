@@ -14,7 +14,8 @@ local augBox = {
     return true
   end,
   ShouldRender = function(self,shipId)
-    return Hyperspace.ships(shipId):GetAugmentationValue(self.augName) ~= 0 and self:RenderCondition(shipId)
+    local ship = Hyperspace.ships(shipId)
+    return ship and ship:GetAugmentationValue(self.augName) ~= 0 and self:RenderCondition(shipId)
   end,
 
   Render = function(self,shipId,alpha)
