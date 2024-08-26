@@ -39,7 +39,10 @@
 			<mod:findLike type="event">
 				<mod:setAttributes load="FUSION_ATLAS_EQUIPMENT"/>
 			</mod:findLike>
-			<mod-overwrite:text>Do something aboard the ship.</mod-overwrite:text>
+			<mod:findLike type="text">
+				<mod:setValue/>
+				<mod:setAttributes id="do_something"/>
+			</mod:findLike>
 		</mod:findWithChildLike>
 		<mod-append:choice req="SEC FINAL" blue="false">
 			<text>Proceed to the Federation Capital.</text>
