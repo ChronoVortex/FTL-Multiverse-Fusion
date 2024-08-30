@@ -348,7 +348,7 @@ do
         local room = GetRoom(ShipManager, Location)
         if room then
             local acidTable = room.table[UNIQUE_KEY]
-            acidTable.timer = acidTable.timer + AcidWeapons[Projectile.extend.name]
+            acidTable.timer = acidTable.timer or 0 + AcidWeapons[Projectile.extend.name]
         end
     end
 
@@ -373,7 +373,7 @@ do
     --APPROPIATELY MODIFY DAMAGE
     local function AcidDamage(ShipManager, Location, Damage)
         local room = GetRoom(ShipManager, Location)
-        if room and room.table[UNIQUE_KEY].timer > 0 then
+        if room and room.table[UNIQUE_KEY] and room.table[UNIQUE_KEY].timer > 0 then
             Damage.iDamage = Damage.iDamage * 2
         end
     end
