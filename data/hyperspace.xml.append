@@ -96,6 +96,8 @@
 		<mod-append:script>data/fusion_scripts/patch_error.lua</mod-append:script>
 		
 		<mod-append:script>data/fusion_scripts/autoUtil.lua</mod-append:script><!--this was in AutoLibrary-->
+
+		<mod-append:script>data/fusion_scripts/fusionIcon.lua</mod-append:script>
 	</mod:findLike>
 	
 	<mod:findLike type="events" limit="1">
