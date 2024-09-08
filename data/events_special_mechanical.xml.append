@@ -11,7 +11,7 @@
    </triggeredEvent>
    <!--<queueEvent>EVENTNAME</queueEvent> append more of those lines for each independent effect-->
  </event>
- <event name="FUSION_ONCREWZERO"/> <!--Triggers when enemy has no crew, can be used for CK-specific things that can be checked in lua-->
+ <event name="FUSION_ONCREWZERO"/> <!--Triggers when enemy has no crew, can be used for CK/autoship-specific things that can be checked in lua, may have to implement queueEvent for when the ship CHANGES to an auto so it checks after that, depending on order of events-->
  <event name="FUSION_RESET" unused="true"><!-- use this if you installed mid-run to activate the effects-->
    <text id="event_FUSION_RESET_text"/>
    <clearTriggeredEvent name="FUSION_ONJUMP"/>

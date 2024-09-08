@@ -37,7 +37,7 @@ end)
 
 -- Use script.on_game_event with "FUSION_ONCREWZERO" to use this
 script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
-	if ship.iShipId == 0 or ship.bAutomated or ranOnCrewZero then return end
+	if ship.iShipId == 0 or ranOnCrewZero then return end
 	
 	local shipCrew = userdata_table(ship, "mods.fusion.eventCallbacks").shipCrew
 	-- new crew could potentially be added mid-fight
