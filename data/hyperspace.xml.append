@@ -85,6 +85,7 @@
 		<mod-append:script>data/fusion_scripts/dependancy.lua</mod-append:script><!--The script folders are named differently because of issues when two script files share the same path.-->
 		<mod-append:script>data/fusion_scripts/utility.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/callbacks.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/eventCallbacks.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/antiAugments.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/systems.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/weapon_fire.lua</mod-append:script>
