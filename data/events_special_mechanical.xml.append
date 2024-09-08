@@ -4,7 +4,6 @@
      <jumps amount="1" type="0"/>
    </triggeredEvent>
    <!--<queueEvent>EVENTNAME</queueEvent> append more of those lines for each independent effect-->
-   <queueEvent>FUSION_ONCREWZERO_SETUP</queueEvent>
  </event>
  <event name="FUSION_ONDAMAGE">
    <triggeredEvent name="FUSION_ONDAMAGE" event="FUSION_ONDAMAGE">
@@ -12,12 +11,7 @@
    </triggeredEvent>
    <!--<queueEvent>EVENTNAME</queueEvent> append more of those lines for each independent effect-->
  </event>
- <event name="FUSION_ONCREWZERO_SETUP">
-    <triggeredEvent name="FUSION_ONCREWZERO" event="FUSION_ONCREWZERO">
-      <enemyCrew amount="0" includeClonebay="true" thisFight="true"/><!--Triggers when enemy has no crew, can be used for CK/autoship-specific things that can be checked in lua, may have to implement queueEvent for when the ship CHANGES to an auto so it checks after that, depending on order of events-->
-    </triggeredEvent>
- </event>
- <event name="FUSION_ONCREWZERO"/>
+ <event name="FUSION_ONCREWZERO"/> <!--Triggers when enemy has no crew, can be used for CK-specific things that can be checked in lua-->
  <event name="FUSION_RESET" unused="true"><!-- use this if you installed mid-run to activate the effects-->
    <text id="event_FUSION_RESET_text"/>
    <clearTriggeredEvent name="FUSION_ONJUMP"/>
