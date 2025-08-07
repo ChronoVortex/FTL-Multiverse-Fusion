@@ -59,10 +59,15 @@ end)
 --]]
 script.on_system_event(Defines.SystemEvents.ON_RUN,
 function(ship, sys)
-  if sys:GetId() == 15 then
-    local damage = ship:GetAugmentationValue("HACKING_DAMAGE")
-    sys.currentSystem:PartialDamage(damage)
+  if sys:GetId() ~= 15 then
+    return
   end
+  local hackedSys = sys.currentSystem
+  if not hackedSys then
+    return
+  end
+  local damage = ship:GetAugmentationValue("HACKING_DAMAGE")
+  hackedSys:PartialDamage(damage)
 end)
 
 
