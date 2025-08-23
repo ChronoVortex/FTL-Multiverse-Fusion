@@ -84,6 +84,8 @@
 	<mod:findLike type="scripts">
 		<mod-append:script>data/fusion_scripts/dependancy.lua</mod-append:script><!--The script folders are named differently because of issues when two script files share the same path.-->
 		<mod-append:script>data/fusion_scripts/utility.lua</mod-append:script>
+		<mod-append:script>data/fusion_scripts/xml/xmlDataInit.lua</mod-append:script><!--Always before all xml tags-->
+
 		<mod-append:script>data/fusion_scripts/callbacks.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/antiAugments.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/custom_fires.lua</mod-append:script>
@@ -96,6 +98,9 @@
 		<mod-append:script>data/fusion_scripts/resist_indicators.lua</mod-append:script>
 		<mod-append:script>data/fusion_scripts/patch_error.lua</mod-append:script>
 		
+		<mod-append:script>data/fusion_scripts/xml/tags/fus-example.lua</mod-append:script><!--Example xml tag-->
+
+		<mod-append:script>data/fusion_scripts/xml/xmlDataRead.lua</mod-append:script><!--Always after all xml tags-->
 		<mod-append:script>data/fusion_scripts/autoUtil.lua</mod-append:script><!--this was in AutoLibrary-->
 
 		<mod-append:script>data/fusion_scripts/fusionIcon.lua</mod-append:script>
