@@ -7,7 +7,7 @@ mods.fusion.chainDrones.DRONE_MISSILES={scaling=0.1, max="10"}
 script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ShipManager)
     local combatdrones = ShipManager.spaceDrones
     local speed = ShipManager:GetAugmentationValue("FR_NEXUS_DRONES_BOOST")
-    if ShipManager:HasAugmentation("FR_NEXUS_DRONES_BOOST") > 0 then 
+    if ShipManager:HasAugmentation("FR_NEXUS_DRONES_BOOST") > 0 then
         for combatdrone in vter(combatdrones) do
             if combatdrone.powered then
                 if combatdrone.currentSpeed and combatdrone.weaponCooldown >= 0 then

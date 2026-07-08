@@ -8,6 +8,10 @@ local FIRE_GRID_HEIGHT = 40 --Height of the fireSpreader grid
 local SMOKE_ANIMATION_DURATION = 1 --Length of vanilla smoke animation, in seconds
 local FIRE_ANIMATION_DURATION = 1 --Length of vanilla fire animation, in seconds
 
+local vanillaSheet = Hyperspace.Resources:GetImageId("effects/largeFire.png")
+local get_fire_extend
+local mSetupRequested = false
+
 --Globally visible constants table
 local constants = setmetatable({}, {
   __newindex = function() error("Attempt to modify a read-only table", 2) end,
@@ -38,78 +42,6 @@ local function fires(room, shipManager)
       end
   end   
 end
- 
---EXTENDED FIRE IMPLEMENTATION
-local Fire_Extend = {}
-function Fire_Extend:New()
-  local fire_extend = {
-
-    systemDamageMultiplier = 1,
-    spreadSpeedMultiplier = 1,
-    deathSpeedMultiplier = 1,
-    oxygenDrainMultiplier = 1,
-    animationSpeedMultiplier = 1,
-    replacementSheet = nil,
-  }
-  return setmetatable(fire_extend, {__index = Fire_Extend})
-end
-
-function Fire_Extend:Reset()
-  self.systemDamageMultiplier = 1
-  self.spreadSpeedMultiplier = 1
-  self.deathSpeedMultiplier = 1
-  self.oxygenDrainMultiplier = 1
-  self.animationSpeedMultiplier = 1
-  self.replacementSheet = nil
-end
-
-local fireExtends = {[0] = {}, [1] = {}}
-local function get_fire_idx(fire)
-  local x = fire.pLoc.x // 35
-  local y = fire.pLoc.y // 35
-  return math.floor(y * FIRE_GRID_WIDTH + x)
-end
-
---Return a table that corresponds to a fire
-local function get_fire_extend(fire)
-  local argType = swig_type(fire)
-  local expectedType = "Fire *"
-  if argType ~= expectedType then
-    local errorMessage = string.format("Error in get_fire_extend: Expected arg of type: %s, recieved arg of type: %s", expectedType, argType)
-    error(errorMessage, 2) 
-  end
-
-  local extend = fireExtends[fire.shipObj.iShipId][get_fire_idx(fire)]
-  if extend == nil then
-    error("No extended object for fire!", 2)
-  end
-  return extend
-end
-
---Table construction/cleanup
-
---Rooms are not initialized in ShipManager construction, so the actual setup has to take place in SHIP_LOOP
-script.on_internal_event(Defines.InternalEvents.CONSTRUCT_SHIP_MANAGER, 
-function(shipManager)
-  --Free old table and mark for setup
-  fireExtends[shipManager.iShipId] = nil 
-end)
-
-script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, 
-function(shipManager)
-  if fireExtends[shipManager.iShipId] == nil then
-  --Create new table
-    local extends = {}
-    for room in vter(shipManager.ship.vRoomList) do
-      for fire in fires(room, shipManager) do
-        local idx = get_fire_idx(fire)
-          extends[idx] = Fire_Extend:New()
-      end
-    end
-    fireExtends[shipManager.iShipId] = extends
-  end
-end, constants.FIRE_EXTEND_INITIALIZATION_LOOP_PRIORITY)
-
 
 --FIRE MECHANICAL IMPLEMENTATION
 
@@ -159,18 +91,8 @@ local function accelerate_animation(animation, speed, base_time)
   animation:SetProgress(progress)
 end
 
---Reset fire values on tick
-script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, 
-function(shipManager)
-  for room in vter(shipManager.ship.vRoomList) do
-    for fire in fires(room, shipManager) do
-      get_fire_extend(fire):Reset()
-    end
-  end
-end, constants.FIRE_STAT_INITIALIZATION_PRIORITY)
-local vanillaSheet = Hyperspace.Resources:GetImageId("effects/largeFire.png")
-script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, 
-function(shipManager)
+local function customFireLoop(shipManager)
+  if shipManager == nil then return end
   for room in vter(shipManager.ship.vRoomList) do
     local timeDilation = Hyperspace.TemporalSystemParser.GetDilationStrength(room.extend.timeDilation)
     local fireCount = shipManager:GetFireCount(room.iRoomId)
@@ -244,6 +166,101 @@ function(shipManager)
       end
     end
   end
+end
+
+--EXTENDED FIRE IMPLEMENTATION
+local Fire_Extend = {}
+function Fire_Extend:New()
+  local fire_extend = {
+
+    systemDamageMultiplier = 1,
+    spreadSpeedMultiplier = 1,
+    deathSpeedMultiplier = 1,
+    oxygenDrainMultiplier = 1,
+    animationSpeedMultiplier = 1,
+    replacementSheet = nil,
+  }
+  return setmetatable(fire_extend, {__index = Fire_Extend})
+end
+
+function Fire_Extend:Reset()
+  self.systemDamageMultiplier = 1
+  self.spreadSpeedMultiplier = 1
+  self.deathSpeedMultiplier = 1
+  self.oxygenDrainMultiplier = 1
+  self.animationSpeedMultiplier = 1
+  self.replacementSheet = nil
+end
+
+local fireExtends = {[0] = {}, [1] = {}}
+local function get_fire_idx(fire)
+  local x = fire.pLoc.x // 35
+  local y = fire.pLoc.y // 35
+  return math.floor(y * FIRE_GRID_WIDTH + x)
+end
+
+
+--Return a table that corresponds to a fire
+get_fire_extend = function(fire)
+  if not mSetupRequested then
+    mSetupRequested = true
+    customFireLoop(Hyperspace.ships(fire.shipObj.iShipId))
+  end
+  local argType = swig_type(fire)
+  local expectedType = "Fire *"
+  if argType ~= expectedType then
+    local errorMessage = string.format("Error in get_fire_extend: Expected arg of type: %s, recieved arg of type: %s", expectedType, argType)
+    error(errorMessage, 2) 
+  end
+
+  local extend = fireExtends[fire.shipObj.iShipId][get_fire_idx(fire)]
+  if extend == nil then
+    error("No extended object for fire!", 2)
+  end
+  return extend
+end
+
+--Table construction/cleanup
+
+--Rooms are not initialized in ShipManager construction, so the actual setup has to take place in SHIP_LOOP
+script.on_internal_event(Defines.InternalEvents.CONSTRUCT_SHIP_MANAGER, 
+function(shipManager)
+  --Free old table and mark for setup
+  fireExtends[shipManager.iShipId] = nil 
+end)
+
+script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, 
+function(shipManager)
+  if fireExtends[shipManager.iShipId] == nil then
+  --Create new table
+    local extends = {}
+    for room in vter(shipManager.ship.vRoomList) do
+      for fire in fires(room, shipManager) do
+        local idx = get_fire_idx(fire)
+          extends[idx] = Fire_Extend:New()
+      end
+    end
+    fireExtends[shipManager.iShipId] = extends
+  end
+end, constants.FIRE_EXTEND_INITIALIZATION_LOOP_PRIORITY)
+
+
+
+--Reset fire values on tick
+script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, 
+function(shipManager)
+  if not mSetupRequested then return end
+  for room in vter(shipManager.ship.vRoomList) do
+    for fire in fires(room, shipManager) do
+      get_fire_extend(fire):Reset()
+    end
+  end
+end, constants.FIRE_STAT_INITIALIZATION_PRIORITY)
+
+script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, 
+function(shipManager)
+  if not mSetupRequested then return end
+  return customFireLoop(shipManager)
 end, constants.FIRE_STAT_APPLICATION_PRIORITY)
 --TODO: Implement fires with crew damage and crew repair multipliers once lua statboosts are active
 

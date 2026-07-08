@@ -1,6 +1,6 @@
 local dialogueBox = mods.fusion.dialogueBox
 
-tutorialBox = dialogueBox:New {
+local tutorialBox = dialogueBox:New {
   font = 1, --The font that the dialogue is rendered in
   x = 300, --x coordinate of the top-left corner of the dialogue box
   y = 100, --y coordinate of the top left corner of the dialogue box
